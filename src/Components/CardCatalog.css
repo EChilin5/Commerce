@@ -1,0 +1,54 @@
+.cardblock-main {
+  height: auto;
+  width: 95%;
+  margin-right: 2%;
+  margin-left: 2%;
+  margin-bottom: 2%;
+  background-color: #fff;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.cardBlock {
+  padding: 20px;
+  display: flex;
+}
+
+.cardBlock:hover {
+  color: rgb(139, 126, 126);
+  transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.carblock-image img {
+  width: 200px;
+  height: 150px;
+}
+
+.cardblock-image {
+  flex: 1;
+}
+
+.cardblock-desc {
+  flex: 1;
+}
+
+.cardblock-desc-name {
+  font-size: 30px;
+  font-weight: 400;
+}
+
+.cardblock-desc-name:hover {
+  text-decoration: underline;
+  color: #3a86ff;
+}
+
+.cardblock-desc-ratring {
+  font-size: 18px;
+}
+.cardblock-desc-price {
+  font-size: 25px;
+  font-weight: 400;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.cardblock-desc-delivery {
+  font-size: 20px;
+}

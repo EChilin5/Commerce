@@ -1,0 +1,57 @@
+.checkOutCard {
+  display: flex;
+
+  margin-right: 4%;
+  margin-left: 4%;
+}
+
+.checkoutcard-left {
+  flex: 20%;
+}
+.checkoutcard-right {
+  flex: 70%;
+  display: flex;
+  flex-direction: column;
+}
+
+.checkoutcard-right div {
+  margin-bottom: 5px;
+}
+
+.checkoutcard-brand {
+  font-size: 20px;
+  text-align: center;
+}
+
+.checkoutcard-quantity {
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+
+.checkoutcard-quantity Button {
+  width: 15%;
+}
+
+.checkoutcard-quantity-count {
+  margin-left: 5%;
+  margin-right: 5%;
+  font-size: 25px;
+}
+
+.checkoutcard-right-header {
+  display: flex;
+}
+
+.wrapper-left-content {
+  font-size: 30px;
+  flex: 60%;
+  margin-right: 2%;
+}
+.checkoutcard-price {
+  font-size: 25px;
+  flex: 15%;
+  text-align: right;
+  margin-left: 2%;
+  margin-right: 2%;
+}

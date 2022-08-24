@@ -1,0 +1,40 @@
+.filters {
+  margin: 0px 10px 10px 10px;
+  height: 100vh;
+  width: 200px;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  position: sticky;
+}
+
+.filters Button {
+  width: 100%;
+}
+.filter-start {
+  margin: 10px;
+  padding-top: 15px;
+}
+
+.filter-content {
+  margin: 10px;
+}
+
+.selection {
+  margin: 10px;
+}
+
+.filters hr {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.selection-item {
+  display: flex;
+  margin-bottom: 5%;
+}
+
+.selection-item input {
+  width: 50%;
+  margin-left: 10px;
+}

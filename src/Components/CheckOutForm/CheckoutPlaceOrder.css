@@ -1,0 +1,31 @@
+.checkout-final-box {
+  background-color: #fff;
+  padding: 15px 15px 15px 15px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.checkout-final-box h3 {
+  text-align: center;
+}
+
+.checkout-final-box button {
+  width: 100%;
+}
+
+.checkout-box-item {
+  display: flex;
+}
+
+.checkout-box-item-content {
+  flex: 1;
+}
+
+.checkout-box-item-number {
+  flex: 1;
+  text-align: right;
+}
+
+.checkout-box-total {
+  display: flex;
+  font-size: 22px;
+  color: rgb(148, 28, 28);
+}

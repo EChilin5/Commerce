@@ -1,0 +1,30 @@
+.review-card {
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 2%;
+}
+
+.review-card-top-row {
+  display: flex;
+}
+.review-card-top-name {
+  flex: 1;
+  font-size: 25px;
+}
+
+.review-card-top-uppvote {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.review-card-top-uppvote Button {
+  margin-left: 2%;
+  width: 20%;
+}
+
+.review-card-rating {
+  margin-top: 1%;
+  font-size: 18px;
+}

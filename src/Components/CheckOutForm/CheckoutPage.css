@@ -1,0 +1,29 @@
+.checkout-main-check {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+
+.checkout-main-check h2 {
+  text-align: center;
+}
+
+.checkout-split-page {
+  display: flex;
+}
+
+.checkout-left {
+  flex: 60%;
+}
+
+.checkout-right {
+  flex: 30%;
+  padding: 5px 5px 5px 40px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.checkout-right-box {
+  width: 28%;
+  position: fixed;
+}

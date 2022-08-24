@@ -1,0 +1,22 @@
+.order-card-main {
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.order-card-left {
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+.order-card-left img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.order-card-right {
+  flex: 70%;
+  margin-top: auto;
+  margin-bottom: auto;
+}
