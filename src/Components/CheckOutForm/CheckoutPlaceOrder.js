@@ -1,10 +1,9 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React from "react";
 import Button from "react-bootstrap/esm/Button";
 import "./CheckoutPlaceOrder.css";
 
 export const CheckoutPlaceOrder = (props) => {
-  const [completeOrder, setCompleteOrder] = useState([]);
   const submitOrder = () => {
     let order = props.orderContent;
     const loggedInUser = localStorage.getItem("user");
@@ -17,19 +16,22 @@ export const CheckoutPlaceOrder = (props) => {
 
     for (var i = 0; i < order.length; i++) {
       let orderItem = order[i];
+
       let orderInformation = {
         productName: orderItem.name,
         imageUrl: orderItem.imageURL,
         price: orderItem.price * orderItem.amount,
         purchaserName: loggedInUser,
         dateSold: date,
+        productId: orderItem.productId,
       };
+      console.log(orderInformation);
       uploadOrder(orderInformation);
     }
 
     deleteCartItems(loggedInUser);
-    window.close();
-    window.open("http://localhost:3000/orders");
+    // window.close();
+    // window.open("http://localhost:3000/orders");
   };
 
   const uploadOrder = (order) => {

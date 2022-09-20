@@ -1,6 +1,5 @@
 .home-page {
-  margin-top: 4%;
-  width: 100%;
+  margin-top: 40px;
 }
 
 .temp {
@@ -8,17 +7,17 @@
 }
 
 .tempHome {
-  width: 100%;
   display: flex;
+  margin-top: 10px;
   margin-right: 5%;
   margin-left: 5%;
 }
 
 .app-left {
-  flex-basis: 20%;
+  flex: auto;
 }
 
-app-right {
-  flex-grow: 1;
-  flex-basis: 100%;
+.app-right {
+  margin-top: 10px;
+  flex: auto;
 }

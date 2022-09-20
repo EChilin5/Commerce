@@ -8,7 +8,10 @@ export const CardCatalog = (props) => {
 
   const handleItemDetail = () => {
     console.log("click");
-    props.display(true, props.item);
+    let urlItem = "http://localhost:3000/catalog/item/" + props.item.productsId;
+    window.open(urlItem);
+    window.close();
+    //props.display(true, props.item);
   };
 
   return (
@@ -25,7 +28,9 @@ export const CardCatalog = (props) => {
             {props.name} ({itemSize[props.item.size - 1]})
           </div>
           <div className="cardblock-desc-ratring">4 out of 5</div>
-          <div className="cardblock-desc-price">${props.item.price}.00</div>
+          <div className="cardblock-desc-price">
+            ${props.item.productPrice}.00
+          </div>
           <div className="cardblock-desc-delivery">
             Delivery Date August 8th
           </div>

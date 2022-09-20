@@ -22,11 +22,12 @@ export const ItemDetailCart = (props) => {
       const foundUser = loggedInUser;
 
       const product = {
-        name: props.product.name,
-        price: props.product.price,
+        name: props.product.productName,
+        price: props.product.productPrice,
         amount: 1,
-        imageUrl: props.product.data.sprites.other.home.front_default,
+        imageUrl: props.product.productImage,
         username: foundUser,
+        productId: props.product.productsId,
       };
       const result = axios.post("http://localhost:53014/api/Cart", product);
       console.log(result.data);
@@ -45,7 +46,7 @@ export const ItemDetailCart = (props) => {
       </div>
 
       <div className="itemCartFilter">
-        <h1>${props.product.price}.00</h1>
+        <h1>${props.product.productPrice}.00</h1>
 
         <div className="brand">
           <h4>{productSize[props.product.size - 1]}</h4>

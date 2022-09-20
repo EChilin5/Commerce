@@ -8,7 +8,7 @@ export const CardComponent = (props) => {
   let itemSize = ["S", "M", "L", "XL"];
 
   const updateModal = () => {
-    props.showDetailInfo(true, props.itemSelected);
+    props.showDetailInfo(true, props.itemSelected.productsId);
   };
 
   return (
@@ -50,7 +50,7 @@ export const CardComponent = (props) => {
                   <Card.Title>
                     {props.name} ({itemSize[props.itemSelected.size - 1]})
                   </Card.Title>
-                  <Card.Text>${props.itemSelected.price}</Card.Text>
+                  <Card.Text>${props.itemSelected.productPrice}</Card.Text>
                 </Card.Body>{" "}
               </div>
             </div>

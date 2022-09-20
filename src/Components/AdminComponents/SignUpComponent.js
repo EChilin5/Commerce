@@ -12,16 +12,9 @@ export const SignUpComponent = () => {
     password: "",
     confirmPassword: "",
     address: "",
+    cityState: "",
     card: "",
   });
-
-  const baseUrl = "http://localhost:53014/api/Transaction";
-  const postSignUp = () => {
-    console.log("test");
-
-    const result = axios.post(`${baseUrl}`, userInfo);
-    console.log(result.data);
-  };
 
   const closeWindow = () => {
     window.close();
@@ -60,6 +53,12 @@ export const SignUpComponent = () => {
       return { ...prevState, address: event.target.value };
     });
   };
+
+  const cityStateChangeHandler = (event) => {
+    setUserInfo((prevState) => {
+      return { ...prevState, cityState: event.target.value };
+    });
+  };
   const cardChangeHandler = (event) => {
     setUserInfo((prevState) => {
       return { ...prevState, card: event.target.value };
@@ -73,8 +72,10 @@ export const SignUpComponent = () => {
         email: userInfo.email,
         password: userInfo.password,
         address: userInfo.address,
-        card: userInfo.card,
+        cityState: userInfo.cityState,
+        cardInfo: userInfo.card,
       };
+      console.log(userData);
       const result = axios.post("http://localhost:53014/api/User", userData);
       console.log(result.data);
       localStorage.setItem("user", userInfo.email);
@@ -136,6 +137,14 @@ export const SignUpComponent = () => {
               type="text"
               placeholder="text"
               onChange={(event) => addressChangeHandler(event)}
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formAddress">
+            <Form.Label>City, State, ZipCode</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="text"
+              onChange={(event) => cityStateChangeHandler(event)}
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formCard">

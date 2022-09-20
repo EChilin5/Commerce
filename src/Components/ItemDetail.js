@@ -1,18 +1,67 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FiltersComponent } from "./FiltersComponent";
 import "./ItemDetail.css";
 import { ItemDetailCart } from "./ItemDetailCart";
 import { ReviewComponent } from "./ReviewComponent";
+import axios from "axios";
+import { useParams } from "react-router-dom";
 
 export const ItemDetail = (props) => {
-  const [mainImage, setMainImage] = useState(props.main);
+  const [arraySize, setArraySize] = useState(0);
+  const [mainImage, setMainImage] = useState();
+  const [productDetails, setProductDetails] = useState([
+    {
+      productsId: "",
+      productName: "",
+      productImage: "",
+      quantity: "",
+      size: "",
+    },
+  ]);
+  let { id } = useParams();
+  let url = "http://localhost:53014/api/Product/api/Products/";
+
+  useEffect(() => {
+    fetchPokemonItem(id);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const fetchPokemonItem = (id) => {
+    console.log("Test");
+    console.log({ id });
+    axios.put(`${url}${id}`).then((res) => {
+      console.log(res.data);
+
+      let data = {
+        productsId: res.data[0].productsId,
+        productName: res.data[0].productName,
+        productImage: res.data[0].productImage,
+        quantity: res.data[0].quantity,
+        size: res.data[0].size,
+      };
+      setProductDetails((prevState) => [
+        ...prevState,
+        {
+          productsId: res.data[0].productsId,
+          productName: res.data[0].productName,
+          productImage: res.data[0].productImage,
+          productPrice: res.data[0].productPrice,
+          quantity: res.data[0].quantity,
+          size: res.data[0].size,
+        },
+      ]);
+      setMainImage(res.data[0].productImage);
+      setArraySize(productDetails.length - 1);
+    });
+  };
 
   const updateImage = (image) => {
     setMainImage(image);
   };
 
   return (
-    <div>
+    <div className="main-itemdetail">
       <div className="itemDetail">
         <div className="item-left">
           <div className="item-left-main">
@@ -22,11 +71,15 @@ export const ItemDetail = (props) => {
           <div className="item-grid">
             <div className="item-column">
               <img
-                src={props.main}
+                src={productDetails[productDetails.length - 1].productImage}
                 alt="item"
                 width="100px"
                 height="100px"
-                onMouseEnter={() => updateImage(props.main)}
+                onMouseEnter={() =>
+                  updateImage(
+                    productDetails[productDetails.length - 1].productImage
+                  )
+                }
               />
             </div>
             <div className="item-column">
@@ -57,18 +110,22 @@ export const ItemDetail = (props) => {
             </div>
             <div className="item-column">
               <img
-                src={props.main}
+                src={productDetails[productDetails.length - 1].productImage}
                 alt="item"
                 width="100px"
                 height="100px"
-                onMouseEnter={() => updateImage(props.main)}
+                onMouseEnter={() =>
+                  updateImage(
+                    productDetails[productDetails.length - 1].productImage
+                  )
+                }
               />
             </div>
           </div>
         </div>
         <div className="item-mid">
-          <h2>{props.productInfo.name}</h2>
-          <h5>$ {props.productInfo.price}.00</h5>
+          <h2>{productDetails[productDetails.length - 1].productName}</h2>
+          <h5>$ {productDetails[productDetails.length - 1].productPrice}.00</h5>
           <p>
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text
@@ -82,10 +139,13 @@ export const ItemDetail = (props) => {
           </p>
         </div>
         <div className="item-right">
-          <ItemDetailCart product={props.productInfo} />
+          <ItemDetailCart product={productDetails[productDetails.length - 1]} />
         </div>
-      </div>{" "}
-      <ReviewComponent productName={props.productInfo.name} />
+      </div>
+
+      <ReviewComponent
+        productName={productDetails[productDetails.length - 1].productName}
+      />
     </div>
   );
 };

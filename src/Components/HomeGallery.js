@@ -11,8 +11,8 @@ export const HomeGallery = (props) => {
     <div className="gallery">
       <Carousel>
         {props.itemInfo.map((item) => {
-          var image = item.data.sprites.other.home.front_default;
-          var name = item.name;
+          var image = item.productImage;
+          var name = item.productName;
           return (
             <Carousel.Item key={homeCounter++}>
               <img src={image} alt="First slide" />

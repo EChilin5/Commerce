@@ -6,30 +6,30 @@ import { ReviewModalPost } from "./Modal/ReviewModalPost";
 import "./ReviewComponent.css";
 
 export const ReviewComponent = (props) => {
-  let temp = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  let count = 0;
   const [reviews, setReviews] = useState([]);
 
   let name = props.productName;
   useEffect(() => {
+    const getProductRevew = () => {
+      setReviews([]);
+      console.log(name);
+      axios
+        .put("http://localhost:53014/api/Reviews", { productName: name })
+        .then((res) => {
+          console.log(res.data);
+
+          for (var i = 0; i < res.data.length; i++) {
+            let productInfo = res.data[i];
+            setReviews((prev) => {
+              return [...prev, productInfo];
+            });
+          }
+        });
+    };
+
     getProductRevew();
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  const getProductRevew = () => {
-    axios
-      .put("http://localhost:53014/api/Reviews", { productName: name })
-      .then((res) => {
-        console.log(res.data);
-
-        for (var i = 0; i < res.data.length; i++) {
-          let productInfo = res.data[i];
-          setReviews((prev) => {
-            return [...prev, productInfo];
-          });
-        }
-      });
-  };
+  }, [name]);
 
   const [show, setShow] = useState(false);
 
@@ -62,10 +62,11 @@ export const ReviewComponent = (props) => {
           </div>
         </div>
         <hr />
+        {reviews.length}
         {reviews.map((it) => {
           return (
-            <div key={it}>
-              <ReviewCard />
+            <div key={count++}>
+              <ReviewCard productReview={it} />
             </div>
           );
         })}

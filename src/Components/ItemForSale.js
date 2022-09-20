@@ -17,7 +17,7 @@ export const ItemForSale = (props) => {
     let updatedFilter;
     if (typeof searchText !== "undefined") {
       updatedFilter = props.itemInfo.filter((input) =>
-        input.name.includes(searchText)
+        input.productName.includes(searchText)
       );
     } else {
       updatedFilter = props.itemInfo;
@@ -25,7 +25,8 @@ export const ItemForSale = (props) => {
 
     if (minPrice !== 0 || maxPrice !== 500) {
       updatedFilter = updatedFilter.filter(
-        (product) => product.price >= minPrice && product.price <= maxPrice
+        (product) =>
+          product.productPrice >= minPrice && product.productPrice <= maxPrice
       );
     }
     // set this to selectIndex
@@ -37,8 +38,8 @@ export const ItemForSale = (props) => {
 
     console.log(updatedFilter);
     return updatedFilter.map((item) => {
-      var image = item.data.sprites.other.home.front_default;
-      var name = item.name;
+      var image = item.productImage;
+      var name = item.productName;
       return (
         <div className="column">
           <CardComponent

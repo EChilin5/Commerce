@@ -41,7 +41,8 @@ export const MainCatalog = (props) => {
     if (end < props.info.length) {
       setStart(end);
       setEnd(end + 10);
-      //   displayItem();
+      window.scrollTo(0, 0);
+      displayItem();
     }
   };
 
@@ -49,6 +50,7 @@ export const MainCatalog = (props) => {
     if (start > 0) {
       setStart(start - 10);
       setEnd(start);
+      window.scrollTo(0, 0);
       displayItem();
     }
   };
@@ -69,7 +71,9 @@ export const MainCatalog = (props) => {
           setMax(props.info.length);
         }
       } else {
-        filter = props.info.filter((input) => input.name.includes(searchText));
+        filter = props.info.filter((input) =>
+          input.productName.includes(searchText)
+        );
 
         if (start !== 0) {
           setStart(0);
@@ -91,7 +95,8 @@ export const MainCatalog = (props) => {
 
     if (minPrice !== 0 || maxPrice !== 500) {
       filter = filter.filter(
-        (product) => product.price >= minPrice && product.price <= maxPrice
+        (product) =>
+          product.productPrice >= minPrice && product.productPrice <= maxPrice
       );
     }
     // set this to selectIndex
@@ -101,8 +106,8 @@ export const MainCatalog = (props) => {
 
     return filter.slice(start, end).map((it) => {
       var index = props.info.indexOf(it);
-      var image = it.data.sprites.other.home.front_default;
-      var name = it.name;
+      var image = it.productImage;
+      var name = it.productName;
 
       return (
         <div key={index}>
@@ -148,12 +153,14 @@ export const MainCatalog = (props) => {
               {displayItem()}
             </div>
           </div>
-          <Button onClick={() => onDecrementCount()}>Previus</Button>
-          <Button onClick={() => onUpdateCount()}>Next</Button>
+          <div className="btn-new-content">
+            <Button onClick={() => onDecrementCount()}>Previous</Button>
+            <Button onClick={() => onUpdateCount()}>Next</Button>
+          </div>
         </div>
       ) : (
         <ItemDetail
-          main={selectedItem.data.sprites.other.home.front_default}
+          main={selectedItem.productImage}
           productInfo={selectedItem}
         />
       )}

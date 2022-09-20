@@ -16,3 +16,13 @@
   margin-left: 2%;
   margin-right: 3%;
 }
+
+.btn-new-content {
+  margin-left: 30%;
+  margin-bottom: 20px;
+}
+
+.btn-new-content Button {
+  width: 30%;
+  margin-right: 2%;
+}

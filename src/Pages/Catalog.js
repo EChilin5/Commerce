@@ -10,7 +10,7 @@ export const Catalog = () => {
 
   const itemSize = [1, 2, 3, 4];
 
-  const url = "https://pokeapi.co/api/v2/";
+  const url = "http://localhost:53014/api/Product";
 
   useEffect(() => {
     if (item.length === 0) {
@@ -21,16 +21,18 @@ export const Catalog = () => {
   }, []);
 
   const getAllItems = () => {
-    var temp = [];
+    // var temp = [];
 
     axios
-      .get(`${url}pokemon?limit=151&offset=0`)
+      .get(`${url}`)
       .then((res) => {
-        for (var i = 0; i < res.data.results.length; i++) {
+        for (var i = 0; i < res.data.length; i++) {
           if (index === i) {
-            temp[i] = res.data.results[i];
-
-            updateItem(res.data.results[i].url, i, res.data.results[i].name);
+            // temp[i] = res.data.results[i];
+            let data = res.data[i];
+            setItem((prevState) => {
+              return [...prevState, data];
+            });
             index++;
           }
         }
@@ -38,29 +40,29 @@ export const Catalog = () => {
       .catch((error) => console.error(`Error ${error}`));
   };
 
-  const updateItem = (url, itemId, itemName) => {
-    axios.get(url).then((res) => {
-      console.log("success");
-      let sizeIndex = Math.floor(Math.random() * (3 - 0 + 1)) + 0;
-      if (sizeIndex > itemSize.length) {
-        sizeIndex = 0;
-      }
-      let tempSize = itemSize[sizeIndex];
+  // const updateItem = (url, itemId, itemName) => {
+  //   axios.get(url).then((res) => {
+  //     console.log("success");
+  //     let sizeIndex = Math.floor(Math.random() * (3 - 0 + 1)) + 0;
+  //     if (sizeIndex > itemSize.length) {
+  //       sizeIndex = 0;
+  //     }
+  //     let tempSize = itemSize[sizeIndex];
 
-      let tempPrice = Math.floor(Math.random() * (500 - 5 + 1)) + 5;
-      const temp = {
-        id: itemId,
-        name: itemName,
-        size: tempSize,
-        price: tempPrice,
-        data: res.data,
-      };
+  //     let tempPrice = Math.floor(Math.random() * (500 - 5 + 1)) + 5;
+  //     const temp = {
+  //       id: itemId,
+  //       name: itemName,
+  //       size: tempSize,
+  //       price: tempPrice,
+  //       data: res.data,
+  //     };
 
-      setItem((prevState) => {
-        return [...prevState, temp];
-      });
-    });
-  };
+  //     setItem((prevState) => {
+  //       return [...prevState, temp];
+  //     });
+  //   });
+  // };
 
   return (
     <div className="catalog">

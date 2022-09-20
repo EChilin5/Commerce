@@ -20,13 +20,22 @@ export const HomePage = () => {
 
   const itemSize = [1, 2, 3, 4];
   const displayDetails = (show, item) => {
-    setshowDetails(show);
+    // setshowDetails(show);
     window.scrollTo({ top: 0, left: 0 });
 
-    setItemDetail(item);
+    handleItemDetail(item);
+
+    // setItemDetail(item);
   };
 
-  const url = "https://pokeapi.co/api/v2/";
+  const handleItemDetail = (itemId) => {
+    console.log("click");
+    let urlItem = "http://localhost:3000/catalog/item/" + itemId;
+    window.open(urlItem);
+    window.close();
+    //props.display(true, props.item);
+  };
+  const url = "http://localhost:53014/api/Product";
 
   useEffect(() => {
     if (item.length === 0) {
@@ -40,13 +49,15 @@ export const HomePage = () => {
     // var temp = [];
 
     axios
-      .get(`${url}pokemon`)
+      .get(`${url}`)
       .then((res) => {
-        for (var i = 0; i < res.data.results.length; i++) {
+        for (var i = 0; i < 21; i++) {
           if (index === i) {
             // temp[i] = res.data.results[i];
-
-            updateItem(res.data.results[i].url, i, res.data.results[i].name);
+            let data = res.data[i];
+            setItem((prevState) => {
+              return [...prevState, data];
+            });
             index++;
           }
         }
@@ -59,28 +70,42 @@ export const HomePage = () => {
     console.log(text);
   };
 
-  const updateItem = (url, itemId, itemName) => {
-    axios.get(url).then((res) => {
-      // console.log("success");
-      let sizeIndex = Math.floor(Math.random() * (3 - 0 + 1)) + 0;
-      if (sizeIndex > itemSize.length) {
-        sizeIndex = 0;
-      }
-      let tempSize = itemSize[sizeIndex];
+  // const updateItem = (url, itemId, itemName) => {
+  //   axios.get(url).then((res) => {
+  //     // console.log("success");
+  //     let sizeIndex = Math.floor(Math.random() * (3 - 0 + 1)) + 0;
+  //     if (sizeIndex > itemSize.length) {
+  //       sizeIndex = 0;
+  //     }
+  //     let tempSize = itemSize[sizeIndex];
 
-      let tempPrice = Math.floor(Math.random() * (500 - 5 + 1)) + 5;
-      const temp = {
-        id: itemId,
-        name: itemName,
-        size: tempSize,
-        price: tempPrice,
-        data: res.data,
-      };
+  //     let tempPrice = Math.floor(Math.random() * (500 - 5 + 1)) + 5;
+  //     const temp = {
+  //       productName: itemName,
+  //       size: tempSize,
+  //       productPrice: tempPrice,
+  //       productImage: res.data.sprites.other.home.front_default,
+  //       quantity: 10,
+  //     };
+  //     //console.log(temp);
+  //     setItem((prevState) => {
+  //       return [...prevState, temp];
+  //     });
+  //   });
+  // };
 
-      setItem((prevState) => {
-        return [...prevState, temp];
+  const uploadData = (product) => {
+    axios
+      .post("http://localhost:53014/api/Product", {
+        productName: product.productName,
+        productImage: product.productImage,
+        productPrice: product.productPrice,
+        size: product.size,
+        quantity: 10,
+      })
+      .then((res) => {
+        console.log(res.data);
       });
-    });
   };
 
   const updatedSelectedSize = (userSizeFilter) => {
@@ -99,10 +124,7 @@ export const HomePage = () => {
     <div className="home-page">
       {showDetails === true ? (
         <div>
-          <ItemDetail
-            main={itemDetail.data.sprites.other.home.front_default}
-            productInfo={itemDetail}
-          />
+          <ItemDetail main={itemDetail.productImage} productInfo={itemDetail} />
         </div>
       ) : (
         <div className="temp">

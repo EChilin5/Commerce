@@ -2,15 +2,13 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./Order.css";
 import { OrderCard } from "../Components/OrdersComponents/OrderCard";
-import { CheckoutForm } from "../Components/CheckOutForm/CheckoutForm";
-import { CheckoutPage } from "../Components/CheckOutForm/CheckoutPage";
 
 export const Orders = () => {
   var url = "http://localhost:53014/api/Transaction";
   const [orders, setOrders] = useState([]);
   const [showDetails, setshowDetails] = useState(false);
 
-  var count = useEffect(() => {
+  useEffect(() => {
     fetchOrderInfo();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -47,6 +45,7 @@ export const Orders = () => {
           {orders
             .filter((it) => it.dateSold === day)
             .map((item) => {
+              console.log(item);
               return (
                 <div key={item.TransactionId}>
                   {" "}
