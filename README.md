@@ -1,70 +1,42 @@
-# Getting Started with Create React App
+# Zotes Shop: A Web Eccomerce App in development
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Zote Shop** is an web application intended to help users buy different products. It is built using React JS, C#, TSQL, and ASP.NET Framework to create Web Api. It is currently still in development. It will be transitioning from Pokemon Api to either to local database or fakestore Api. 
 
-## Available Scripts
+## Upcoming Features
+- [ ] Transition from Pokemon Api to either custom data or FakeStore Api.
+- [ ] Add Email Js to send emails to user who purchase orders.
+- [ ] Incorporate Google Pay to complete order transactions for fake payments.
+- [ ] Improve responsiveness of web page to work on mobile devices.
+- [ ] Incorporate process for returns. 
+- [ ] Improve overall app design.
+- [ ] Host Database, Rest Api, and Web page online.
 
-In the project directory, you can run:
+## Completed Task
+- [x] Developed Web Api that connect to database
+- [x] Implement Intial design for web application
+- [x] User is able to sign up and login.
+- [x] User is able to add items to cart and purchase the items.
+- [x] Able to add product reviews
 
-### `npm start`
+## Current App Screenshots
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+#### Home Page
+<img src='https://github.com/EChilin5/Commerce/blob/master/screenshots/Home.png' title='Home Page' width='400' alt='home' /> 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+#### Catalog Page
+<img src='https://github.com/EChilin5/Commerce/blob/master/screenshots/catalog.png' title='Catalog Page' width='400' alt='home' /> 
 
-### `npm test`
+#### Product Page
+<img src='https://github.com/EChilin5/Commerce/blob/master/screenshots/product_detail.png' title='Product Page' width='400' alt='product' /> 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Cart Page
+<img src='https://github.com/EChilin5/Commerce/blob/master/screenshots/cart.png' title='Cart Page' width='400' alt='product' /> 
 
-### `npm run build`
+#### Checkout Page
+<img src='https://github.com/EChilin5/Commerce/blob/master/screenshots/checkout.png' title='Checkout Page' width='400' alt='checkout' /> 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Orders Page
+<img src='https://github.com/EChilin5/Commerce/blob/master/screenshots/orders.png' title='Orders Page' width='400' alt='orders' /> 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
