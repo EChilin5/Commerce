@@ -7,7 +7,6 @@ export const CardCatalog = (props) => {
   let itemSize = ["Small", "Medium", "Large", "XL"];
 
   const handleItemDetail = () => {
-    console.log("click");
     let urlItem = "http://localhost:3000/catalog/item/" + props.item.productsId;
     window.open(urlItem);
     window.close();

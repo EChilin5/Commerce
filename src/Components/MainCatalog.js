@@ -37,7 +37,6 @@ export const MainCatalog = (props) => {
   };
 
   const onUpdateCount = () => {
-    console.log("lcik uhuohuhuh");
     if (end < props.info.length) {
       setStart(end);
       setEnd(end + 10);
