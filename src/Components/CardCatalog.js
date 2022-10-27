@@ -6,11 +6,39 @@ import { HomePage } from "../Pages/HomePage";
 export const CardCatalog = (props) => {
   let itemSize = ["Small", "Medium", "Large", "XL"];
 
+  let randomDay = Math.floor(Math.random() * (5 - 1 + 1) + 1);
+
   const handleItemDetail = () => {
     let urlItem = "http://localhost:3000/catalog/item/" + props.item.productsId;
     window.open(urlItem);
     window.close();
     //props.display(true, props.item);
+  };
+
+  function randomDate() {
+    let year = new Date().getFullYear();
+    let month = new Date().getMonth();
+    let day = new Date().getDate();
+    var startingDay = new Date(year, month, day);
+
+    var thisDay = new Date();
+    // for (var i = 0; i < 7; i++) {
+    let nextday = thisDay.setDate(startingDay.getDate() + randomDay);
+    let test = " " + new Date(nextday).toDateString();
+    console.log(test);
+    // }
+    return test;
+    // return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+  }
+
+  const roundPrice = (price) => {
+    let value = Math.round(price * 100) / 100;
+    let textValue = "" + value;
+    if (textValue.indexOf(".") === -1) {
+      textValue += ".00";
+    }
+
+    return textValue;
   };
 
   return (
@@ -24,14 +52,14 @@ export const CardCatalog = (props) => {
             className="cardblock-desc-name"
             onClick={() => handleItemDetail()}
           >
-            {props.name} ({itemSize[props.item.size - 1]})
+            {props.name}
           </div>
           <div className="cardblock-desc-ratring">4 out of 5</div>
           <div className="cardblock-desc-price">
-            ${props.item.productPrice}.00
+            ${roundPrice(props.item.productPrice)}
           </div>
           <div className="cardblock-desc-delivery">
-            Delivery Date August 8th
+            Delivery Date {randomDate()}
           </div>
         </div>
       </div>

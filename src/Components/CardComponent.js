@@ -11,6 +11,16 @@ export const CardComponent = (props) => {
     props.showDetailInfo(true, props.itemSelected.productsId);
   };
 
+  const roundPrice = (price) => {
+    let value = Math.round(price * 100) / 100;
+    let textValue = "" + value;
+    if (textValue.indexOf(".") === -1) {
+      textValue += ".00";
+    }
+
+    return textValue;
+  };
+
   return (
     <div
       className="card-master"
@@ -50,7 +60,9 @@ export const CardComponent = (props) => {
                   <Card.Title>
                     {props.name} ({itemSize[props.itemSelected.size - 1]})
                   </Card.Title>
-                  <Card.Text>${props.itemSelected.productPrice}</Card.Text>
+                  <Card.Text>
+                    ${roundPrice(props.itemSelected.productPrice)}
+                  </Card.Text>
                 </Card.Body>{" "}
               </div>
             </div>

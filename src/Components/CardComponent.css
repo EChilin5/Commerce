@@ -10,6 +10,10 @@
   align-items: center;
 }
 
+.card-img-top{
+  height: 200px;
+}
+
 .card-title {
   text-align: center;
   text-transform: uppercase;

@@ -6,6 +6,16 @@ export const OrderCard = (props) => {
     window.open(`http://localhost:3000/catalog/item/${props.it.productId}`);
   };
 
+  const roundPrice = (price) => {
+    let value = Math.round(price * 100) / 100;
+    let textValue = "" + value;
+    if (textValue.indexOf(".") === -1) {
+      textValue += ".00";
+    }
+
+    return textValue;
+  };
+
   return (
     <div key={props.it.TransactionId}>
       <div className="order-card-main">
@@ -19,7 +29,7 @@ export const OrderCard = (props) => {
           <div className="order-card-title" onClick={() => openProductDetail()}>
             {props.name}
           </div>
-          <div className="order-card-item">$ {props.it.price}</div>
+          <div className="order-card-item">$ {roundPrice(props.it.price)}</div>
         </div>
       </div>
     </div>

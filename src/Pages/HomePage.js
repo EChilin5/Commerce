@@ -38,6 +38,7 @@ export const HomePage = () => {
   const url = "http://localhost:53014/api/Product";
 
   useEffect(() => {
+    // fetchApi();
     if (item.length === 0) {
       getAllItems();
     }
@@ -46,12 +47,10 @@ export const HomePage = () => {
   }, []);
 
   const getAllItems = () => {
-    // var temp = [];
-
     axios
       .get(`${url}`)
       .then((res) => {
-        for (var i = 0; i < 21; i++) {
+        for (var i = 0; i < 20; i++) {
           if (index === i) {
             // temp[i] = res.data.results[i];
             let data = res.data[i];
@@ -94,6 +93,28 @@ export const HomePage = () => {
   //   });
   // };
 
+  const fetchApi = () => {
+    axios.get(`https://fakestoreapi.com/products`).then((res) => {
+      for (var i = 0; i < res.data.length; i++) {
+        let product = res.data[i];
+        let sizeIndex = Math.floor(Math.random() * (3 - 0 + 1)) + 0;
+        if (sizeIndex > itemSize.length) {
+          sizeIndex = 0;
+        }
+        let tempSize = itemSize[sizeIndex];
+        console.log(product);
+        let productItem = {
+          productName: product.title,
+          productImage: product.image,
+          productPrice: product.price,
+          size: tempSize,
+          quantity: 10,
+        };
+        uploadData(productItem);
+      }
+    });
+  };
+
   const uploadData = (product) => {
     axios
       .post("http://localhost:53014/api/Product", {
@@ -128,7 +149,7 @@ export const HomePage = () => {
         </div>
       ) : (
         <div className="temp">
-          <HomeGallery itemInfo={item} />
+          <HomeGallery itemInfo={item.slice(0, 10)} />
           <div className="tempHome">
             <div className="app-left">
               <FiltersComponent

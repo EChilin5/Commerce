@@ -18,7 +18,18 @@ export const CheckoutPage = () => {
 
   const url = "http://localhost:53014/api/Cart";
 
+  const roundPrice = (price) => {
+    let value = Math.round(price * 100) / 100;
+    // let textValue = "" + value;
+    // if (textValue.indexOf(".") === -1) {
+    //   textValue += ".00";
+    // }
+
+    return value;
+  };
+
   const updateSum = (price) => {
+    price = roundPrice(price);
     setSum(sum + price);
   };
 
@@ -37,7 +48,7 @@ export const CheckoutPage = () => {
         for (var i = 0; i < res.data.length; i++) {
           let cartItem = res.data[i];
           count += cartItem.amount;
-          price += cartItem.price * cartItem.amount;
+          price += roundPrice(cartItem.price) * cartItem.amount;
 
           updateSum(price);
           updateLength(count);

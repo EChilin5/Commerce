@@ -7,6 +7,7 @@ import { BuyNowModal } from "./Modal/BuyNowModal";
 export const ItemDetailCart = (props) => {
   const [show, setShow] = useState(false);
   const productSize = ["Smal", "Medium", "Large", "X-Large"];
+  let randomDay = Math.floor(Math.random() * (5 - 1 + 1) + 1);
 
   const openModal = () => {
     setShow(true);
@@ -14,6 +15,16 @@ export const ItemDetailCart = (props) => {
 
   const closeModal = () => {
     setShow(false);
+  };
+
+  const roundPrice = (price) => {
+    let value = Math.round(price * 100) / 100;
+    let textValue = "" + value;
+    if (textValue.indexOf(".") === -1) {
+      textValue += ".00";
+    }
+
+    return textValue;
   };
 
   const addItemToCart = () => {
@@ -39,6 +50,22 @@ export const ItemDetailCart = (props) => {
     }
   };
 
+  function randomDate() {
+    let year = new Date().getFullYear();
+    let month = new Date().getMonth();
+    let day = new Date().getDate();
+    var startingDay = new Date(year, month, day);
+
+    var thisDay = new Date();
+    // for (var i = 0; i < 7; i++) {
+    let nextday = thisDay.setDate(startingDay.getDate() + randomDay);
+    let test = " " + new Date(nextday).toDateString();
+    console.log(test);
+    // }
+    return test;
+    // return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+  }
+
   return (
     <div>
       <div>
@@ -46,7 +73,7 @@ export const ItemDetailCart = (props) => {
       </div>
 
       <div className="itemCartFilter">
-        <h1>${props.product.productPrice}.00</h1>
+        <h1>${roundPrice(props.product.productPrice)}</h1>
 
         <div className="brand">
           <h4>{productSize[props.product.size - 1]}</h4>
@@ -70,7 +97,8 @@ export const ItemDetailCart = (props) => {
         </div>
         <hr></hr>
         <div className="deliveryDate">
-          Expected Delivery August 8-August 20th
+          Expected Delivery
+          {randomDate()}
         </div>
       </div>
     </div>

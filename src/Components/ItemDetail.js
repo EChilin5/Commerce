@@ -19,6 +19,7 @@ export const ItemDetail = (props) => {
     },
   ]);
   let { id } = useParams();
+
   let url = "http://localhost:53014/api/Product/api/Products/";
 
   useEffect(() => {
@@ -26,6 +27,16 @@ export const ItemDetail = (props) => {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const roundPrice = (price) => {
+    let value = Math.round(price * 100) / 100;
+    let textValue = "" + value;
+    if (textValue.indexOf(".") === -1) {
+      textValue += ".00";
+    }
+
+    return textValue;
+  };
 
   const fetchPokemonItem = (id) => {
     console.log("Test");
@@ -125,7 +136,10 @@ export const ItemDetail = (props) => {
         </div>
         <div className="item-mid">
           <h2>{productDetails[productDetails.length - 1].productName}</h2>
-          <h5>$ {productDetails[productDetails.length - 1].productPrice}.00</h5>
+          <h5>
+            ${" "}
+            {roundPrice(productDetails[productDetails.length - 1].productPrice)}
+          </h5>
           <p>
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text

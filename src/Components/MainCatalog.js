@@ -3,15 +3,11 @@ import { CardCatalog } from "./CardCatalog";
 import { FiltersComponent } from "./FiltersComponent";
 import { SearchComponent } from "./SearchComponent";
 import "./MainCatalog.css";
-import { ItemDetail } from "./ItemDetail";
 import Button from "react-bootstrap/esm/Button";
 
 export const MainCatalog = (props) => {
-  const [showItem, setshowItem] = useState(false);
-  const [selectedItem, setSelectedItem] = useState();
   const [search, setSearch] = useState("");
 
-  const [isCountUpdated, setisCountUpdated] = useState(false);
   const [start, setStart] = useState(0);
   const [end, setEnd] = useState(10);
   const [max, setMax] = useState(props.info);
@@ -30,10 +26,7 @@ export const MainCatalog = (props) => {
   };
 
   const updateDisplay = (state, item) => {
-    setSelectedItem(item);
     window.scrollTo({ top: 0, left: 0 });
-
-    setshowItem(state);
   };
 
   const onUpdateCount = () => {
@@ -135,34 +128,27 @@ export const MainCatalog = (props) => {
 
   return (
     <div>
-      {showItem === false ? (
-        <div>
-          <div className="catalogfeatures">
-            <div className="catalogfeatures-left">
-              <FiltersComponent
-                productFilterSize={updatedSelectedSize}
-                producetPriceFilterValue={updatedPrices}
-              />
-            </div>
-            <div className="catalogfeatures-right">
-              <div className="catalogfeatures-search">
-                <SearchComponent searchTextResult={searchText} />
-              </div>
-
-              {displayItem()}
-            </div>
+      <div>
+        <div className="catalogfeatures">
+          <div className="catalogfeatures-left">
+            <FiltersComponent
+              productFilterSize={updatedSelectedSize}
+              producetPriceFilterValue={updatedPrices}
+            />
           </div>
-          <div className="btn-new-content">
-            <Button onClick={() => onDecrementCount()}>Previous</Button>
-            <Button onClick={() => onUpdateCount()}>Next</Button>
+          <div className="catalogfeatures-right">
+            <div className="catalogfeatures-search">
+              <SearchComponent searchTextResult={searchText} />
+            </div>
+
+            {displayItem()}
           </div>
         </div>
-      ) : (
-        <ItemDetail
-          main={selectedItem.productImage}
-          productInfo={selectedItem}
-        />
-      )}
+        <div className="btn-new-content">
+          <Button onClick={() => onDecrementCount()}>Previous</Button>
+          <Button onClick={() => onUpdateCount()}>Next</Button>
+        </div>
+      </div>
     </div>
   );
 };

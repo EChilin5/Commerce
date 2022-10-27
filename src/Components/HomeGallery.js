@@ -12,13 +12,18 @@ export const HomeGallery = (props) => {
       <Carousel>
         {props.itemInfo.map((item) => {
           var image = item.productImage;
-          var name = item.productName;
+          var name = item.productName.split(" ");
+          let newName = "";
+          for (var i = 0; i < name.length / 2; i++) {
+            newName += name[i] + " ";
+          }
+          newName = newName.trim() + "...";
           return (
             <Carousel.Item key={homeCounter++}>
               <img src={image} alt="First slide" />
               <Carousel.Caption>
                 <div className="gallery-box">
-                  <h3>{name}</h3>
+                  <h3>{newName}</h3>
                   <p>
                     Nulla vitae elit libero, a pharetra augue mollis interdum.
                   </p>

@@ -5,8 +5,18 @@ import "./CheckOutCard.css";
 export const CheckOutCard = (props) => {
   const [itemCount, setItemCount] = useState(props.cart.amount);
 
+  const roundPrice = (price) => {
+    let value = Math.round(price * 100) / 100;
+    // let textValue = "" + value;
+    // if (textValue.indexOf(".") === -1) {
+    //   textValue += ".00";
+    // }
+
+    return value;
+  };
+
   const updateItemQuanity = (isIncreased) => {
-    var price = props.cart.price;
+    var price = roundPrice(props.cart.price);
     if (isIncreased) {
       setItemCount(itemCount + 1);
       props.updateValues(price, 1);
@@ -45,7 +55,7 @@ export const CheckOutCard = (props) => {
               </div>
 
               <div className="checkoutcard-price">
-                ${props.cart.price * itemCount}
+                ${roundPrice(props.cart.price) * itemCount}
               </div>
             </div>
           </div>
