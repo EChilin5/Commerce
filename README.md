@@ -6,8 +6,6 @@
 
 
 ## Upcoming Features
-- [ ] Transition from Pokemon Api to either custom data or FakeStore Api.
-- [ ] Add Email Js to send emails to user who purchase orders.
 - [ ] Incorporate Google Pay to complete order transactions for fake payments.
 - [ ] Improve responsiveness of web page to work on mobile devices.
 - [ ] Incorporate process for returns. 
@@ -20,6 +18,10 @@
 - [x] User is able to sign up and login.
 - [x] User is able to add items to cart and purchase the items.
 - [x] Able to add product reviews
+- [x] Transition from Pokemon Api to either custom data or FakeStore Api.
+- [x] Add Email Js to send emails to user who purchase orders.
+
+
 
 ## Current App Screenshots
 
