@@ -9,6 +9,8 @@ import { HomePage } from "../../Pages/HomePage";
 import { Orders } from "../../Pages/Orders";
 import { ItemDetail } from "../ItemDetail";
 import { ProtectedRoute } from "./ProtectedRoute";
+import { Inventory } from "../../Pages/Inventory";
+import { InventoryProductDetails } from "../InventoryComponents/InventoryProductDetails";
 
 export const NavBarComponent = () => {
   const [user, setUser] = useState("Log In");
@@ -51,6 +53,9 @@ export const NavBarComponent = () => {
                   <Nav.Link as={Link} to="/orders">
                     Orders
                   </Nav.Link>
+                  <Nav.Link as={Link} to="/inventory">
+                    Inventory
+                  </Nav.Link>
                   <Nav.Link as={Link} to="/admin">
                     {user}
                   </Nav.Link>
@@ -72,8 +77,13 @@ export const NavBarComponent = () => {
             <Route path="/catalog" element={<Catalog />} />
             <Route path="/cart" element={<Contact />} />
             <Route path="/orders" element={<Orders />} />
+            <Route path="/inventory" element={<Inventory />} />
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/catalog/item/:id" element={<ItemDetail />} />
+            <Route
+              path="/inventory/item/:id"
+              element={InventoryProductDetails}
+            />
             <Route
               element={
                 <ProtectedRoute auth={user !== "Log In" ? false : true} />

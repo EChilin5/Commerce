@@ -2,6 +2,7 @@ import axios from "axios";
 import React from "react";
 import Button from "react-bootstrap/esm/Button";
 import "./CheckoutPlaceOrder.css";
+import emailjs from "@emailjs/browser";
 
 export const CheckoutPlaceOrder = (props) => {
   let randomDay = Math.floor(Math.random() * (5 - 1 + 1) + 1);
@@ -36,6 +37,16 @@ export const CheckoutPlaceOrder = (props) => {
     // window.open("http://localhost:3000/orders");
   };
 
+  const roundPrice = (price) => {
+    let value = Math.round(price * 100) / 100;
+    // let textValue = "" + value;
+    // if (textValue.indexOf(".") === -1) {
+    //   textValue += ".00";
+    // }
+
+    return value;
+  };
+
   function randomDate() {
     let year = new Date().getFullYear();
     let month = new Date().getMonth();
@@ -67,7 +78,38 @@ export const CheckoutPlaceOrder = (props) => {
       .delete("http://localhost:53014/api/Cart", { data: { userName: user } })
       .then((res) => {
         console.log(res.data);
+        sendEmail();
       });
+  };
+
+  const sendEmail = () => {
+    let emailObject = {
+      email: "edgar3ac@gmail.com",
+      name: "hello world 123",
+      subject: "Testing 123",
+      message: "testing 232 unkown verification check spam",
+    };
+
+    var postData = JSON.stringify(emailObject);
+    var formData = new FormData();
+    formData.append("postData", postData);
+    console.log(formData);
+
+    emailjs
+      .sendForm(
+        process.env.REACT_SERVICE_KEY,
+        process.env.REACT_TEMPLATE_KEY,
+        formData,
+        process.env.REACT_PUBLIC_KEY
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
   };
 
   return (
@@ -86,7 +128,9 @@ export const CheckoutPlaceOrder = (props) => {
             <div className="checkout-box-item-content">
               Items ({props.itemCount} items):{" "}
             </div>
-            <div className="checkout-box-item-number">${props.price}</div>
+            <div className="checkout-box-item-number">
+              ${roundPrice(props.price)}
+            </div>
           </div>
           <div className="checkout-box-item">
             <div className="checkout-box-item-content">
@@ -96,7 +140,9 @@ export const CheckoutPlaceOrder = (props) => {
           </div>
           <div className="checkout-box-item">
             <div className="checkout-box-item-content">Total without Tax:</div>
-            <div className="checkout-box-item-number">${props.price + 5}</div>
+            <div className="checkout-box-item-number">
+              ${roundPrice(props.price) + 5}
+            </div>
           </div>
           <div className="checkout-box-item">
             <div className="checkout-box-item-content">Tax:</div>
@@ -106,7 +152,9 @@ export const CheckoutPlaceOrder = (props) => {
           <div className="checkout-box-total">
             <div className="checkout-box-item-content">Order Total :</div>
 
-            <div className="checkout-box-item-number">${props.price + 10}</div>
+            <div className="checkout-box-item-number">
+              ${roundPrice(props.price) + 10}
+            </div>
           </div>
         </div>
         <hr />

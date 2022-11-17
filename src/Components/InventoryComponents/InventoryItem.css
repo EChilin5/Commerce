@@ -1,0 +1,48 @@
+.inventory-product{
+    padding-top: 1%;
+    margin-left: 15%;
+    margin-right: 15%;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    background-color: white;
+}
+.inventory-product  h3{
+    margin-left: 3%;
+}
+
+.inventory-product-section{
+    display: flex;
+    margin-left: 5%;
+    margin-right:5%;
+    border-bottom: 1em;
+}
+
+.section-one{
+  
+}
+
+.section-two{
+    margin-left: 5%;
+    margin-right: 5%;
+    font-size: 1.5em;
+    text-align: center;
+}
+.section-two-quantity{
+    display: flex;
+    margin-top: 5%;
+    font-size: 0.9em;
+}
+.section-three{
+    flex:20%;
+}
+
+.section-four{
+    margin-left: 5%;
+    margin-right: 5%;
+    justify-content: space-between;
+}
+
+.section-four input{
+    width:30%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
