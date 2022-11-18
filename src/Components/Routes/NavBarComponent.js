@@ -82,7 +82,7 @@ export const NavBarComponent = () => {
             <Route path="/catalog/item/:id" element={<ItemDetail />} />
             <Route
               path="/inventory/item/:id"
-              element={InventoryProductDetails}
+              element={<InventoryProductDetails />}
             />
             <Route
               element={

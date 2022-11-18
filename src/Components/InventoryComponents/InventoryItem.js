@@ -3,8 +3,15 @@ import "./InventoryItem.css";
 import Button from "react-bootstrap/Button";
 
 export const InventoryItem = (props) => {
+  const handleItemDetail = () => {
+    let urlItem = "http://localhost:3000/inventory/item/" + props.id;
+    window.open(urlItem);
+    window.close();
+    //props.display(true, props.item);
+  };
+
   return (
-    <div className="inventory-product">
+    <div className="inventory-product" onClick={() => handleItemDetail()}>
       <h3>Product #{props.id}</h3>
       <div className="inventory-product-section">
         <div className="section-one">
