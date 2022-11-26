@@ -1,3 +1,50 @@
 .inventory-analysis{
     margin-top: 70px;
 }
+.inventory-analysis-header{
+    display: flex;
+    margin-bottom: 2%;
+}
+
+.inventory-analysis h1{
+    text-align: center;
+    flex: 2;
+}
+
+.inventory-analysis Button{
+    
+    width: 20%;
+    margin: 1%;
+    margin-right: 10%;
+}
+
+.product-details-one{
+    display: flex;
+    justify-content: space-evenly;
+}
+.product-details-one-mid{
+   
+    font-size: 1.5em;
+ 
+}
+
+.product-details-description{
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.product-details-bar-charts{
+    display: flex;
+    margin-top: 3%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.chart-left{
+    flex: 1;
+}
+
+.chart-right{
+    text-align: left;
+    flex: 1;
+}
