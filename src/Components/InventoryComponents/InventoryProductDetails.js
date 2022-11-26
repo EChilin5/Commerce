@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Chart } from "../Charts/Chart";
 import axios from "axios";
 import Button from "react-bootstrap/Button";
 import "./IventoryProductDetails.css";
@@ -51,6 +52,52 @@ export const InventoryProductDetails = () => {
     });
   };
 
+  const roundPrice = (price) => {
+    let value = Math.round(price * 100) / 100;
+    let textValue = "" + value;
+    if (textValue.indexOf(".") === -1) {
+      textValue += ".00";
+    }
+
+    return textValue;
+  };
+
+  const labels = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
+  var data = {
+    labels: labels,
+    datasets: [
+      {
+        label: "Sales",
+        data: labels.map(() => 20 + Math.floor(Math.random() * (100 - 0 + 1))),
+        backgroundColor: "rgba(255, 99, 132, 0.5)",
+      },
+    ],
+  };
+  var data2 = {
+    labels: labels,
+    datasets: [
+      {
+        label: "Returns",
+        data: labels.map(() => 20 + Math.floor(Math.random() * (100 - 0 + 1))),
+        backgroundColor: "rgba(53, 162, 235, 0.5)",
+      },
+    ],
+  };
+
   return (
     <div className="inventory-analysis">
       <div className="inventory-analysis-header">
@@ -63,7 +110,13 @@ export const InventoryProductDetails = () => {
           <div className="product-rank">Rank 1/20</div>
           <div className="product-details-one-mid">
             <div>{productDetails[productDetails.length - 1].productName}</div>
-            <div>${productDetails[productDetails.length - 1].productPrice}</div>
+            <div>Sold by Company X</div>
+            <div>
+              Price: $
+              {roundPrice(
+                productDetails[productDetails.length - 1].productPrice
+              )}
+            </div>
           </div>
           <div>
             <img
@@ -91,9 +144,15 @@ export const InventoryProductDetails = () => {
         <div className="product-details-bar-charts">
           <div className="chart-left">
             <h4>Sale Rate</h4>
+            <div>
+              <Chart data={data} />
+            </div>
           </div>
           <div className="chart-right">
             <h4>Return Rate</h4>
+            <div>
+              <Chart data={data2} />
+            </div>
           </div>
         </div>
       </div>

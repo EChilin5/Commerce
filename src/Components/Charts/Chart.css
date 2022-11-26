@@ -1,0 +1,59 @@
+.chart {
+    padding: 30px;
+  
+    height: auto;
+  }
+  
+  .barchart {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .barchart-graph {
+    flex: 1;
+    width: 50%;
+  }
+  
+  .barchart-results {
+    flex: 1;
+    padding: 30px;
+  }
+  
+  .results-data {
+    display: flex;
+  }
+  .busy {
+    flex: 1;
+    text-align: center;
+  }
+  .busy h5 {
+    text-decoration: underline;
+  }
+  .less {
+    flex: 1;
+    text-align: center;
+  }
+  .less h5 {
+    text-decoration: underline;
+  }
+  
+  .barchart-employee {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  @media screen and (max-width: 480px) {
+    .barchart {
+      flex-direction: column;
+    }
+    .barchart-graph {
+      flex: 1;
+      width: 100%;
+      height: 60%;
+    }
+  
+    .results-data {
+      flex-direction: column;
+    }
+  }
+  
