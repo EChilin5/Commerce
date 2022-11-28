@@ -28,8 +28,9 @@ export const InventoryItem = (props) => {
               <Button>Subtract</Button>
             </div>
           </div>
-        </div>
+        </div>{" "}
       </div>{" "}
+      <div className="additional-details">Click here for details</div>
       <hr />
     </div>
   );

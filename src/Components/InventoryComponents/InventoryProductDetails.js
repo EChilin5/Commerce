@@ -117,6 +117,7 @@ export const InventoryProductDetails = () => {
                 productDetails[productDetails.length - 1].productPrice
               )}
             </div>
+            <div>Current Stock 100</div>
           </div>
           <div>
             <img
@@ -127,6 +128,7 @@ export const InventoryProductDetails = () => {
             />
           </div>
         </div>
+
         <div className="product-details-description">
           {" "}
           <h4>Product Description</h4>

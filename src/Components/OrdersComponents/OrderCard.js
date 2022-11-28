@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "react-bootstrap/esm/Button";
 import "./OrderCard.css";
 
 export const OrderCard = (props) => {
@@ -25,11 +26,15 @@ export const OrderCard = (props) => {
           </div>
         </div>
 
-        <div className="order-card-right">
+        <div className="order-card-mid">
           <div className="order-card-title" onClick={() => openProductDetail()}>
             {props.name}
           </div>
           <div className="order-card-item">$ {roundPrice(props.it.price)}</div>
+        </div>
+
+        <div className="order-card-right">
+          <Button>Return Package</Button>
         </div>
       </div>
     </div>

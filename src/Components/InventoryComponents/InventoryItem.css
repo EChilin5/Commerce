@@ -46,3 +46,14 @@
     margin-left: 5%;
     margin-right: 5%;
 }
+
+.additional-details{
+    font-size: 1em;
+    text-align: right;
+    margin-right: 5%;
+    color:#aaaaaa ;
+}
+
+.inventory-product button{
+    background-color: #3d3d3d;
+}

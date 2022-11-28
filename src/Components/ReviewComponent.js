@@ -62,14 +62,19 @@ export const ReviewComponent = (props) => {
           </div>
         </div>
         <hr />
-        {reviews.length}
-        {reviews.map((it) => {
-          return (
-            <div key={count++}>
-              <ReviewCard productReview={it} />
-            </div>
-          );
-        })}
+        {reviews.length === 0 ? (
+          <div className="reviews-empty"> No reviews have been made</div>
+        ) : (
+          <div>
+            {reviews.map((it) => {
+              return (
+                <div key={count++}>
+                  <ReviewCard productReview={it} />
+                </div>
+              );
+            })}
+          </div>
+        )}
       </div>
     </div>
   );

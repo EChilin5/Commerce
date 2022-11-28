@@ -22,3 +22,8 @@
   align-items: flex-end;
   justify-content: flex-end;
 }
+
+.reviews-empty{
+  text-align: center;
+  font-size: 1.5em;
+}

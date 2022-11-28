@@ -81,15 +81,24 @@ export const CheckOutMainComponent = () => {
       <div className="cart-content">
         <hr className="cart-hr"></hr>
         <div className="cart-item">
-          {cartItems.map((it) => {
-            // updateLength(it.itemCount);
-            // updateSum(it.price * it.itemCount);
-            return (
-              <div key={it.cartId}>
-                <CheckOutCard cart={it} updateValues={updateOverallValues} />
-              </div>
-            );
-          })}
+          {cartItems.length === 0 ? (
+            <div className="empty-cart"> Your Cart is currently empty </div>
+          ) : (
+            <div>
+              {cartItems.map((it) => {
+                // updateLength(it.itemCount);
+                // updateSum(it.price * it.itemCount);
+                return (
+                  <div key={it.cartId}>
+                    <CheckOutCard
+                      cart={it}
+                      updateValues={updateOverallValues}
+                    />
+                  </div>
+                );
+              })}
+            </div>
+          )}
         </div>
         <div className="cart-content-total">
           Total ({itemCount} items) : ${sum}

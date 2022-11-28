@@ -48,3 +48,8 @@
     text-align: left;
     flex: 1;
 }
+
+
+.inventory-analysis button{
+    background-color: #3d3d3d;
+}

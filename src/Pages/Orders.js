@@ -27,8 +27,27 @@ export const Orders = () => {
       .catch((error) => console.error(`Error ${error}`));
   };
 
+  const totalPrice = (day) => {
+    var price = 0;
+    for (var i = 0; i < orders.length; i++) {
+      if (day === orders[i].dateSold) {
+        let value = Math.round(orders[i].price * 100) / 100;
+        price += value;
+      }
+    }
+
+    let value = Math.round(price * 100) / 100;
+
+    let textValue = "" + value;
+    if (textValue.indexOf(".") === -1) {
+      textValue += ".00";
+    }
+    return textValue;
+  };
+
   const filterOrders = () => {
     var temp = [];
+    var price = [];
     var count = 0;
     orders.map((days) => {
       const currentDay = days.dateSold;
@@ -37,10 +56,19 @@ export const Orders = () => {
       }
     });
 
+    temp = temp.reverse();
+    var orderAmount = temp.length;
     return temp.map((day) => {
       return (
         <div className="order-day-items">
-          <h5>{day}</h5>
+          <div className="order-day-items-header">
+            <h4>Order Number {orderAmount--} </h4>
+
+            <p>Total Price: ${totalPrice(day)}</p>
+
+            <h5>{day}</h5>
+          </div>
+
           <hr />
           {orders
             .filter((it) => it.dateSold === day)

@@ -4,6 +4,10 @@
   display: flex;
 }
 
+.btn-new-content Button{
+  background-color: #3d3d3d;
+}
+
 .catalogfeatures-left {
   flex: 1;
 }
