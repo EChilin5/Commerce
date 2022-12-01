@@ -4,6 +4,7 @@ import { Chart } from "../Charts/Chart";
 import axios from "axios";
 import Button from "react-bootstrap/Button";
 import "./IventoryProductDetails.css";
+import { ProgressWheel } from "./ProgressWheel";
 
 export const InventoryProductDetails = () => {
   let { id } = useParams();
@@ -107,7 +108,10 @@ export const InventoryProductDetails = () => {
 
       <div>
         <div className="product-details-one">
-          <div className="product-rank">Rank 1/20</div>
+          <div className="product-rank">
+            Rank 1/20
+            <ProgressWheel score={70} />
+          </div>
           <div className="product-details-one-mid">
             <div>{productDetails[productDetails.length - 1].productName}</div>
             <div>Sold by Company X</div>
