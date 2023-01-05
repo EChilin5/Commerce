@@ -109,8 +109,10 @@ export const InventoryProductDetails = () => {
       <div>
         <div className="product-details-one">
           <div className="product-rank">
-            Rank 1/20
-            <ProgressWheel score={70} />
+            <div className="wheel">
+              <ProgressWheel score={90} />
+            </div>
+            <div className="subtitle">Rank 2/20</div>
           </div>
           <div className="product-details-one-mid">
             <div>{productDetails[productDetails.length - 1].productName}</div>

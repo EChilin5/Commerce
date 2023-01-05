@@ -21,6 +21,21 @@
     display: flex;
     justify-content: space-evenly;
 }
+
+.product-rank{
+    display: flex;
+    flex-direction: column;
+}
+.wheel{
+    margin-bottom: 0%;
+}
+
+.subtitle{
+    margin-top: 0%;
+    margin-bottom: 2%;
+    text-align: center;
+}
+
 .product-details-one-mid{
    
     font-size: 1.5em;

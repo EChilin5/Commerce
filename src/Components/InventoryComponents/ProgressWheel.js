@@ -18,21 +18,22 @@ export const ProgressWheel = (props) => {
       <CircularProgressbar
         value={score}
         text={`${score} %`}
-        circleRatio={0.7}
+        circleRatio={1}
         styles={{
           trail: {
             strokeLinecap: "butt",
-            transform: "rotate(-126deg)",
-            transformOrigin: "center center",
+            // transform: "rotate(-126deg)",
+            // transformOrigin: "center center",
+            stroke: "#aaaaaa",
           },
           path: {
             strokeLinecap: "butt",
-            transform: "rotate(-126deg)",
+            // transform: "rotate(-126deg)",
             transformOrigin: "center center",
             stroke: calcColor(score, 0, 120),
           },
           text: {
-            fill: "#ddd",
+            fill: "#181818",
           },
         }}
         strokeWidth={10}
