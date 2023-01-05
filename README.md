@@ -23,7 +23,7 @@
 
 
 
-## Current App Screenshots
+## Sample App Screenshots
 
 #### Home Page
 <img src='https://github.com/EChilin5/Commerce/blob/master/screenshots/Home.png' title='Home Page' width='400' alt='home' /> 
