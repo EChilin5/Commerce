@@ -26,19 +26,19 @@
 ## Sample App Screenshots
 
 #### Home Page
-<img src='https://github.com/EChilin5/Commerce/blob/master/screenshots/Home.png' title='Home Page' width='400' alt='home' /> 
+<img src='https://github.com/EChilin5/Commerce/blob/master/screenshots/homepage_!.PNG' title='Home Page' width='400' alt='home' /> 
 
 #### Catalog Page
-<img src='https://github.com/EChilin5/Commerce/blob/master/screenshots/catalog.png' title='Catalog Page' width='400' alt='home' /> 
+<img src='https://github.com/EChilin5/Commerce/blob/master/screenshots/catalog_1.PNG' title='Catalog Page' width='400' alt='home' /> 
 
 #### Product Page
-<img src='https://github.com/EChilin5/Commerce/blob/master/screenshots/product_detail.png' title='Product Page' width='400' alt='product' /> 
+<img src='https://github.com/EChilin5/Commerce/blob/master/screenshots/item_detail.PNG' title='Product Page' width='400' alt='product' /> 
 
 #### Cart Page
-<img src='https://github.com/EChilin5/Commerce/blob/master/screenshots/cart.png' title='Cart Page' width='400' alt='product' /> 
+<img src='https://github.com/EChilin5/Commerce/blob/master/screenshots/shopping_cart.PNG' title='Cart Page' width='400' alt='product' /> 
 
 #### Checkout Page
-<img src='https://github.com/EChilin5/Commerce/blob/master/screenshots/checkout.png' title='Checkout Page' width='400' alt='checkout' /> 
+<img src='https://github.com/EChilin5/Commerce/blob/master/screenshots/order_proccess.PNG' title='Checkout Page' width='400' alt='checkout' /> 
 
 #### Orders Page
 <img src='https://github.com/EChilin5/Commerce/blob/master/screenshots/orders.png' title='Orders Page' width='400' alt='orders' /> 
