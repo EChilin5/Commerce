@@ -27,7 +27,7 @@ export const CheckoutShipping = () => {
       setAddress((prevState) => [
         ...prevState,
         {
-          name: res.data[0].name,
+          //  name: res.data[0].name,
           address: res.data[0].address,
           cityState: res.data[0].cityState,
         },
