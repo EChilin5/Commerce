@@ -41,7 +41,7 @@
 <img src='https://github.com/EChilin5/Commerce/blob/master/screenshots/order_proccess.PNG' title='Checkout Page' width='400' alt='checkout' /> 
 
 #### Orders Page
-<img src='https://github.com/EChilin5/Commerce/blob/master/screenshots/orders.png' title='Orders Page' width='400' alt='orders' /> 
+<img src='https://github.com/EChilin5/Commerce/blob/master/screenshots/orders_list.PNG' title='Orders Page' width='400' alt='orders' /> 
 
 
 
