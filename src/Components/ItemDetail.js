@@ -19,8 +19,11 @@ export const ItemDetail = (props) => {
     },
   ]);
   let { id } = useParams();
+  console.log(id);
 
-  let url = "http://localhost:53014/api/Product/api/Products/";
+  // let url = "http://localhost:53014/api/Product/api/Products/";
+
+  let url = "https://localhost:7019/GetSingleProduct/";
 
   useEffect(() => {
     fetchPokemonItem(id);
@@ -42,27 +45,28 @@ export const ItemDetail = (props) => {
     console.log("Test");
     console.log({ id });
     axios.put(`${url}${id}`).then((res) => {
-      console.log(res.data);
+      console.log("Test2323 ");
+      console.log(res);
 
       let data = {
-        productsId: res.data[0].productsId,
-        productName: res.data[0].productName,
-        productImage: res.data[0].productImage,
-        quantity: res.data[0].quantity,
-        size: res.data[0].size,
+        productsId: res.data.productsId,
+        productName: res.data.productName,
+        productImage: res.data.productImage,
+        quantity: res.data.quantity,
+        size: res.data.size,
       };
       setProductDetails((prevState) => [
         ...prevState,
         {
-          productsId: res.data[0].productsId,
-          productName: res.data[0].productName,
-          productImage: res.data[0].productImage,
-          productPrice: res.data[0].productPrice,
-          quantity: res.data[0].quantity,
-          size: res.data[0].size,
+          productsId: res.data.productsId,
+          productName: res.data.productName,
+          productImage: res.data.productImage,
+          productPrice: res.data.productPrice,
+          quantity: res.data.quantity,
+          size: res.data.size,
         },
       ]);
-      setMainImage(res.data[0].productImage);
+      setMainImage(res.data.productImage);
       setArraySize(productDetails.length - 1);
     });
   };

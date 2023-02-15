@@ -28,14 +28,16 @@ export const HomePage = () => {
     // setItemDetail(item);
   };
 
+  let baseURL = "https://localhost:7019/";
+
   const handleItemDetail = (itemId) => {
     console.log("click");
-    let urlItem = "http://localhost:3000/catalog/item/" + itemId;
+    let urlItem = `${baseURL}GetSingleProduct/` + itemId;
     window.open(urlItem);
     window.close();
     //props.display(true, props.item);
   };
-  const url = "http://localhost:53014/api/Product";
+  const url = `${baseURL}GetAllProduct`;
 
   useEffect(() => {
     // fetchApi();

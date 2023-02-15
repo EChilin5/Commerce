@@ -10,7 +10,7 @@ export const Catalog = () => {
 
   const itemSize = [1, 2, 3, 4];
 
-  const url = "http://localhost:53014/api/Product";
+  const url = "https://localhost:7019/GetAllProduct";
 
   useEffect(() => {
     if (item.length === 0) {
@@ -26,6 +26,7 @@ export const Catalog = () => {
     axios
       .get(`${url}`)
       .then((res) => {
+        console.log(res.data);
         for (var i = 0; i < res.data.length; i++) {
           if (index === i) {
             // temp[i] = res.data.results[i];

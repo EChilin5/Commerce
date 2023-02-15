@@ -10,22 +10,21 @@ export const ReviewComponent = (props) => {
   const [reviews, setReviews] = useState([]);
 
   let name = props.productName;
+  let baseURL = "https://localhost:7019/Review/GetAllReviews/";
   useEffect(() => {
     const getProductRevew = () => {
       setReviews([]);
       console.log(name);
-      axios
-        .put("http://localhost:53014/api/Reviews", { productName: name })
-        .then((res) => {
-          console.log(res.data);
+      axios.get(`${baseURL}${name}`).then((res) => {
+        console.log(res.data);
 
-          for (var i = 0; i < res.data.length; i++) {
-            let productInfo = res.data[i];
-            setReviews((prev) => {
-              return [...prev, productInfo];
-            });
-          }
-        });
+        for (var i = 0; i < res.data.length; i++) {
+          let productInfo = res.data[i];
+          setReviews((prev) => {
+            return [...prev, productInfo];
+          });
+        }
+      });
     };
 
     getProductRevew();

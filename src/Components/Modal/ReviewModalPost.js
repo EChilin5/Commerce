@@ -5,6 +5,7 @@ import Form from "react-bootstrap/Form";
 import axios from "axios";
 
 export const ReviewModalPost = (props) => {
+  let baseURL = `https://localhost:7019/Review/AddReview`;
   const postReview = () => {
     const loggedInUser = localStorage.getItem("user");
     let name = props.productName;
@@ -15,7 +16,7 @@ export const ReviewModalPost = (props) => {
       email: loggedInUser,
     };
 
-    axios.post("http://localhost:53014/api/Reviews", reviewInfo).then((res) => {
+    axios.post(`${baseURL}`, reviewInfo).then((res) => {
       console.log(res.data);
       props.handleClose();
     });

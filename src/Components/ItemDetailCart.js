@@ -8,6 +8,7 @@ export const ItemDetailCart = (props) => {
   const [show, setShow] = useState(false);
   const productSize = ["Smal", "Medium", "Large", "X-Large"];
   let randomDay = Math.floor(Math.random() * (5 - 1 + 1) + 1);
+  let baseURL = `https://localhost:7019/Cart/AddCartItem/`;
 
   const openModal = () => {
     setShow(true);
@@ -40,7 +41,7 @@ export const ItemDetailCart = (props) => {
         username: foundUser,
         productId: props.product.productsId,
       };
-      const result = axios.post("http://localhost:53014/api/Cart", product);
+      const result = axios.post(`${baseURL}`, product);
       console.log(result.data);
       console.log(product);
       alert("added to cart");

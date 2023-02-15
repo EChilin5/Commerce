@@ -16,7 +16,7 @@ export const CheckoutPage = () => {
     fetchCartInfo(loggedInUser);
   }, []);
 
-  const url = "http://localhost:53014/api/Cart";
+  const url = "https://localhost:7019/Cart/GetAllCartItem/";
 
   const roundPrice = (price) => {
     let value = Math.round(price * 100) / 100;
@@ -43,7 +43,7 @@ export const CheckoutPage = () => {
     let price = 0;
 
     axios
-      .put(`${url}`, user)
+      .get(`${url}${user}`)
       .then((res) => {
         for (var i = 0; i < res.data.length; i++) {
           let cartItem = res.data[i];
