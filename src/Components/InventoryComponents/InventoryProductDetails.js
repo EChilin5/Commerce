@@ -8,7 +8,7 @@ import { ProgressWheel } from "./ProgressWheel";
 
 export const InventoryProductDetails = () => {
   let { id } = useParams();
-  let url = "http://localhost:53014/api/Product/api/Products/";
+  let url = "https://localhost:7019/GetSingleProduct/";
   const [productDetails, setProductDetails] = useState([
     {
       productsId: "",
@@ -42,12 +42,12 @@ export const InventoryProductDetails = () => {
       setProductDetails((prevState) => [
         ...prevState,
         {
-          productsId: res.data[0].productsId,
-          productName: res.data[0].productName,
-          productImage: res.data[0].productImage,
-          productPrice: res.data[0].productPrice,
-          quantity: res.data[0].quantity,
-          size: res.data[0].size,
+          productsId: res.data.productsId,
+          productName: res.data.productName,
+          productImage: res.data.productImage,
+          productPrice: res.data.productPrice,
+          quantity: res.data.quantity,
+          size: res.data.size,
         },
       ]);
     });

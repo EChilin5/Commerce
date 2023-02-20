@@ -31,7 +31,11 @@ export const ItemDetailCart = (props) => {
   const addItemToCart = () => {
     const loggedInUser = localStorage.getItem("user");
     if (loggedInUser) {
-      const foundUser = loggedInUser;
+      let foundUser = loggedInUser;
+      let index = loggedInUser.indexOf("@");
+      foundUser = foundUser.slice(0, index);
+
+      console.log(foundUser);
 
       const product = {
         name: props.product.productName,

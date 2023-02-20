@@ -4,7 +4,7 @@ import "./Order.css";
 import { OrderCard } from "../Components/OrdersComponents/OrderCard";
 
 export const Orders = () => {
-  var url = "http://localhost:53014/api/Transaction";
+  var url = "https://localhost:7019/Transaction/GetUserTransaction/";
   const [orders, setOrders] = useState([]);
   const [showDetails, setshowDetails] = useState(false);
 
@@ -14,9 +14,13 @@ export const Orders = () => {
   }, []);
 
   const fetchOrderInfo = () => {
+    let loggedInUser = localStorage.getItem("user");
+    // let index = loggedInUser.indexOf("@");
+    // loggedInUser = loggedInUser.slice(0, index);
     axios
-      .get(`${url}`)
+      .get(`${url}${loggedInUser}`)
       .then((res) => {
+        console.log(res);
         for (var i = 0; i < res.data.length; i++) {
           const temp = res.data[i];
           setOrders((prevState) => {

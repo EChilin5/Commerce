@@ -9,7 +9,7 @@ export const Inventory = () => {
 
   const itemSize = [1, 2, 3, 4];
 
-  const url = "http://localhost:53014/api/Product";
+  const url = "https://localhost:7019/GetAllProduct";
 
   useEffect(() => {
     fetchProductDetails();

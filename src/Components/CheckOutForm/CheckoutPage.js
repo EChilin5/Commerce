@@ -12,7 +12,10 @@ export const CheckoutPage = () => {
   const [itemCount, setItemCount] = useState(0);
 
   useEffect(() => {
-    const loggedInUser = localStorage.getItem("user");
+    let loggedInUser = localStorage.getItem("user");
+    let index = loggedInUser.indexOf("@");
+    loggedInUser = loggedInUser.slice(0, index);
+
     fetchCartInfo(loggedInUser);
   }, []);
 
@@ -38,13 +41,13 @@ export const CheckoutPage = () => {
   };
 
   const fetchCartInfo = (email) => {
-    const user = { userName: email };
     let count = 0;
     let price = 0;
 
     axios
-      .get(`${url}${user}`)
+      .get(`${url}${email}`)
       .then((res) => {
+        console.log(res);
         for (var i = 0; i < res.data.length; i++) {
           let cartItem = res.data[i];
           count += cartItem.amount;

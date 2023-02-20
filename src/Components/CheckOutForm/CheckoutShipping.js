@@ -11,7 +11,7 @@ export const CheckoutShipping = () => {
     },
   ]);
 
-  const baseUrl = `http://localhost:53014/api/User/`;
+  const baseUrl = `https://localhost:7019/User/GetAllUser/`;
 
   useEffect(() => {
     fetchAddress();
@@ -21,15 +21,15 @@ export const CheckoutShipping = () => {
   const fetchAddress = () => {
     let loggedInUser = localStorage.getItem("user");
     console.log("rw " + loggedInUser);
-    axios.put(`${baseUrl}${loggedInUser}`).then((res) => {
+    axios.get(`${baseUrl}${loggedInUser}`).then((res) => {
       console.log(res.data);
 
       setAddress((prevState) => [
         ...prevState,
         {
-          //  name: res.data[0].name,
-          address: res.data[0].address,
-          cityState: res.data[0].cityState,
+          name: res.data.name,
+          address: res.data.address,
+          cityState: res.data.cityState,
         },
       ]);
     });

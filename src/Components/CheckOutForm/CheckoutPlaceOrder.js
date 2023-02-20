@@ -64,9 +64,11 @@ export const CheckoutPlaceOrder = (props) => {
   }
 
   const uploadOrder = (order) => {
-    axios.post("http://localhost:53014/api/Transaction", order).then((res) => {
-      console.log(res.data);
-    });
+    axios
+      .post("https://localhost:7019/Transaction/AddTransaction/", order)
+      .then((res) => {
+        console.log(res.data);
+      });
   };
 
   const deleteCartItems = (user) => {
@@ -75,7 +77,9 @@ export const CheckoutPlaceOrder = (props) => {
     };
     console.log(userInfo);
     axios
-      .delete("http://localhost:53014/api/Cart", { data: { userName: user } })
+      .delete("https://localhost:7019/Cart/DeleteCartItem/", {
+        data: { userName: user },
+      })
       .then((res) => {
         console.log(res.data);
         sendEmail();

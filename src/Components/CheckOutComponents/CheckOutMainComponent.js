@@ -27,7 +27,7 @@ export const CheckOutMainComponent = () => {
     updateLength(count);
   };
 
-  const url = "http://localhost:53014/api/Cart";
+  const url = "https://localhost:7019/Cart/GetAllCartItem/";
 
   const roundPrice = (price) => {
     let value = Math.round(price * 100) / 100;
@@ -40,14 +40,18 @@ export const CheckOutMainComponent = () => {
   };
 
   const fetchCartInfo = (email) => {
+    let input = email.indexOf("@");
+    email = email.slice(0, input);
+    console.log(email);
     const user = { userName: email };
     let count = 0;
     let price = 0;
 
     if (email) {
       axios
-        .put(`${url}`, user)
+        .get(`${url}${email}`)
         .then((res) => {
+          console.log(res);
           for (var i = 0; i < res.data.length; i++) {
             let cartItem = res.data[i];
             count += cartItem.amount;
