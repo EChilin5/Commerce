@@ -104,7 +104,7 @@ export const HomePage = () => {
           sizeIndex = 0;
         }
         let tempSize = itemSize[sizeIndex];
-        console.log(product);
+        //console.log(product);
         let productItem = {
           productName: product.title,
           productImage: product.image,
@@ -117,9 +117,12 @@ export const HomePage = () => {
     });
   };
 
-  const uploadData = (product) => {
-    axios
-      .post("http://localhost:53014/api/Product", {
+  const uploadData = async (product) => {
+    console.log("test");
+    console.log(product);
+    await axios
+      .post("https://localhost:7019/AddProduct", {
+        // productsId: 0,
         productName: product.productName,
         productImage: product.productImage,
         productPrice: product.productPrice,
@@ -127,7 +130,7 @@ export const HomePage = () => {
         quantity: 10,
       })
       .then((res) => {
-        console.log(res.data);
+        console.log(res.config.data);
       });
   };
 
@@ -137,10 +140,10 @@ export const HomePage = () => {
     setFilterChanged(true);
   };
   const updatedPrices = (min, max) => {
-    console.log("upadted price");
+    //console.log("upadted price");
     let newPrice = [min, max];
     setPriceUpdated(newPrice);
-    console.log(newPrice);
+    //console.log(newPrice);
   };
 
   return (
@@ -162,7 +165,7 @@ export const HomePage = () => {
             <div className="app-right">
               <SearchComponent searchTextResult={searchText} />
               <ItemForSale
-                itemInfo={item}
+                itemInfo={item.slice(0, 15)}
                 display={displayDetails}
                 searchResult={search}
                 productSize={selectedSize}

@@ -76,7 +76,10 @@ export const SignUpComponent = () => {
         cardInfo: userInfo.card,
       };
       console.log(userData);
-      const result = axios.post("http://localhost:53014/api/User", userData);
+      const result = axios.post(
+        "https://localhost:7019/User/AddUser",
+        userData
+      );
       console.log(result.data);
       localStorage.setItem("user", userInfo.email);
 

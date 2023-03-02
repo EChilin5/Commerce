@@ -28,7 +28,7 @@ export const LoginComponent = (props) => {
     });
   };
 
-  const baseUrl = "http://localhost:53014/api/User";
+  const baseUrl = "https://localhost:7019/User/GetAllUser";
 
   useEffect(() => {
     const loggedInUser = localStorage.getItem("user");
@@ -53,11 +53,11 @@ export const LoginComponent = (props) => {
         password: login.password,
       };
 
-      axios.put(baseUrl, credientials).then((res) => {
+      axios.get(`${baseUrl}/${login.email}/${login.password}`).then((res) => {
         console.log();
-        let isValid = res.data[0].Column1;
+        let isValid = res.data;
         console.log(isValid);
-        if (isValid == "1") {
+        if (isValid !== null) {
           localStorage.setItem("user", login.email);
           console.log("User is Signed In");
           closeWindow();

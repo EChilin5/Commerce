@@ -37,9 +37,11 @@ export const ItemForSale = (props) => {
     }
 
     console.log(updatedFilter);
-    return updatedFilter.map((item) => {
-      var image = item.productImage;
-      var name = item.productName;
+    return updatedFilter?.map((item, index) => {
+      // console.log(`${item[index].productsId}  ${item.productImage} `);
+      console.log(index);
+      var image = item[index].productImage;
+      var name = item[index].productName;
       return (
         <div className="column">
           <CardComponent
