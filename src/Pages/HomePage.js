@@ -32,7 +32,7 @@ export const HomePage = () => {
 
   const handleItemDetail = (itemId) => {
     console.log("click");
-    let urlItem = `${baseURL}GetSingleProduct/` + itemId;
+    let urlItem = "http://localhost:3000/catalog/item/" + itemId;
     window.open(urlItem);
     window.close();
     //props.display(true, props.item);
