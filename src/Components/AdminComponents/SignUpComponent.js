@@ -80,10 +80,12 @@ export const SignUpComponent = () => {
         "https://localhost:7019/User/AddUser",
         userData
       );
-      console.log(result.data);
+      console.log(typeof result.status);
+      if (result.status) {
+      }
       localStorage.setItem("user", userInfo.email);
 
-      closeWindow();
+      // closeWindow();
     } else {
       alert("Password do not match");
     }
