@@ -65,7 +65,10 @@ export const CheckoutPlaceOrder = (props) => {
 
   const uploadOrder = (order) => {
     axios
-      .post("https://localhost:7019/Transaction/AddTransaction/", order)
+      .post(
+        "https://zoteshopapi20230311210030.azurewebsites.net/Transaction/AddTransaction/",
+        order
+      )
       .then((res) => {
         console.log(res.data);
       });
@@ -77,9 +80,12 @@ export const CheckoutPlaceOrder = (props) => {
     };
     console.log(userInfo);
     axios
-      .delete("https://localhost:7019/Cart/DeleteCartItem/", {
-        data: { userName: user },
-      })
+      .delete(
+        "https://zoteshopapi20230311210030.azurewebsites.net/Cart/DeleteCartItem/",
+        {
+          data: { userName: user },
+        }
+      )
       .then((res) => {
         console.log(res.data);
         sendEmail();

@@ -5,7 +5,7 @@ import Form from "react-bootstrap/Form";
 import axios from "axios";
 
 export const ReviewModalPost = (props) => {
-  let baseURL = `https://localhost:7019/Review/AddReview`;
+  let baseURL = `https://zoteshopapi20230311210030.azurewebsites.net/Review/AddReview`;
   const postReview = () => {
     const loggedInUser = localStorage.getItem("user");
     let name = props.productName;

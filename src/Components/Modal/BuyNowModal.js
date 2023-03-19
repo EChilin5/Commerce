@@ -14,7 +14,10 @@ export const BuyNowModal = (props) => {
       purchaserName: "Edgar",
       dateSold: "8/03/22",
     };
-    const result = axios.post("http://localhost:53014/api/Transaction", data);
+    const result = axios.post(
+      "https://zoteshopapi20230311210030.azurewebsites.net/Transaction/AddTransaction",
+      data
+    );
     console.log(result.data);
     props.handleClose();
   };

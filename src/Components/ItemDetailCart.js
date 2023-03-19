@@ -8,7 +8,7 @@ export const ItemDetailCart = (props) => {
   const [show, setShow] = useState(false);
   const productSize = ["Smal", "Medium", "Large", "X-Large"];
   let randomDay = Math.floor(Math.random() * (5 - 1 + 1) + 1);
-  let baseURL = `https://localhost:7019/Cart/AddCartItem/`;
+  let baseURL = `https://zoteshopapi20230311210030.azurewebsites.net/Cart/AddCartItem`;
 
   const openModal = () => {
     setShow(true);

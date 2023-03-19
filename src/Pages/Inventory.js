@@ -9,7 +9,8 @@ export const Inventory = () => {
 
   const itemSize = [1, 2, 3, 4];
 
-  const url = "https://localhost:7019/GetAllProduct";
+  const url =
+    "https://zoteshopapi20230311210030.azurewebsites.net/GetAllProduct";
 
   useEffect(() => {
     fetchProductDetails();

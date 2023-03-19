@@ -10,7 +10,8 @@ export const ReviewComponent = (props) => {
   const [reviews, setReviews] = useState([]);
 
   let name = props.productName;
-  let baseURL = "https://localhost:7019/Review/GetAllReviews/";
+  let baseURL =
+    "https://zoteshopapi20230311210030.azurewebsites.net/Review/GetAllReviews/";
   useEffect(() => {
     const getProductRevew = () => {
       setReviews([]);

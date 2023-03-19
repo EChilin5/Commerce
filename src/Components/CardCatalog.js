@@ -7,9 +7,10 @@ export const CardCatalog = (props) => {
   let itemSize = ["Small", "Medium", "Large", "XL"];
 
   let randomDay = Math.floor(Math.random() * (5 - 1 + 1) + 1);
+  let baseURL = "http://localhost:3000/catalog/item/";
 
   const handleItemDetail = () => {
-    let urlItem = "http://localhost:3000/catalog/item/" + props.item.productsId;
+    let urlItem = baseURL + props.item.productsId;
     window.open(urlItem);
     window.close();
     //props.display(true, props.item);

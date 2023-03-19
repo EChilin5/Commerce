@@ -19,7 +19,8 @@ export const CheckoutPage = () => {
     fetchCartInfo(loggedInUser);
   }, []);
 
-  const url = "https://localhost:7019/Cart/GetAllCartItem/";
+  const url =
+    "https://zoteshopapi20230311210030.azurewebsites.net/Cart/GetAllCartItem/";
 
   const roundPrice = (price) => {
     let value = Math.round(price * 100) / 100;

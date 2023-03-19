@@ -8,7 +8,8 @@ import { ProgressWheel } from "./ProgressWheel";
 
 export const InventoryProductDetails = () => {
   let { id } = useParams();
-  let url = "https://localhost:7019/GetSingleProduct/";
+  let url =
+    "https://zoteshopapi20230311210030.azurewebsites.net/GetSingleProduct/";
   const [productDetails, setProductDetails] = useState([
     {
       productsId: "",

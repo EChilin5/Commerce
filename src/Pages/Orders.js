@@ -4,7 +4,8 @@ import "./Order.css";
 import { OrderCard } from "../Components/OrdersComponents/OrderCard";
 
 export const Orders = () => {
-  var url = "https://localhost:7019/Transaction/GetUserTransaction/";
+  var url =
+    "https://zoteshopapi20230311210030.azurewebsites.net/Transaction/GetUserTransaction/";
   const [orders, setOrders] = useState([]);
   const [showDetails, setshowDetails] = useState(false);
 

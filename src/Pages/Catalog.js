@@ -10,7 +10,7 @@ export const Catalog = () => {
 
   const itemSize = [1, 2, 3, 4];
 
-  const url = "https://localhost:7019/GetAllProduct";
+  const url = "https://zoteshopapi20230311210030.azurewebsites.net/";
 
   useEffect(() => {
     if (item.length === 0) {
@@ -24,7 +24,7 @@ export const Catalog = () => {
     // var temp = [];
 
     axios
-      .get(`${url}`)
+      .get(`${url}GetAllProduct`)
       .then((res) => {
         console.log(res.data);
         for (var i = 0; i < res.data.length; i++) {

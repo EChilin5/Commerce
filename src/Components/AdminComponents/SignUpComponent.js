@@ -77,7 +77,7 @@ export const SignUpComponent = () => {
       };
       console.log(userData);
       const result = axios.post(
-        "https://localhost:7019/User/AddUser",
+        "https://zoteshopapi20230311210030.azurewebsites.net/User/AddUser",
         userData
       );
       console.log(typeof result.status);

@@ -11,7 +11,7 @@ export const CheckoutShipping = () => {
     },
   ]);
 
-  const baseUrl = `https://localhost:7019/User/GetAllUser/`;
+  const baseUrl = `https://zoteshopapi20230311210030.azurewebsites.net/User/GetAllUser/`;
 
   useEffect(() => {
     fetchAddress();

@@ -23,6 +23,7 @@ export const ItemDetail = (props) => {
 
   // let url = "http://localhost:53014/api/Product/api/Products/";
 
+  let baseURL = "https://zoteshopapi20230311210030.azurewebsites.net/";
   let url = "https://localhost:7019/GetSingleProduct/";
 
   useEffect(() => {
@@ -44,7 +45,7 @@ export const ItemDetail = (props) => {
   const fetchPokemonItem = (id) => {
     console.log("Test");
     console.log({ id });
-    axios.put(`${url}${id}`).then((res) => {
+    axios.put(`${baseURL}GetSingleProduct/${id}`).then((res) => {
       console.log("Test2323 ");
       console.log(res);
 

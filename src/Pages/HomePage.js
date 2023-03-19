@@ -28,7 +28,7 @@ export const HomePage = () => {
     // setItemDetail(item);
   };
 
-  let baseURL = "https://localhost:7019/";
+  let baseURL = "https://zoteshopapi20230311210030.azurewebsites.net/";
 
   const handleItemDetail = (itemId) => {
     console.log("click");
@@ -50,7 +50,7 @@ export const HomePage = () => {
 
   const getAllItems = () => {
     axios
-      .get(`${url}`)
+      .get(`${url}`, { withCredentials: false })
       .then((res) => {
         for (var i = 0; i < 20; i++) {
           if (index === i) {
