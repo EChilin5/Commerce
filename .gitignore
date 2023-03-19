@@ -24,3 +24,8 @@ yarn-error.log*
 package-lock.json
 package.json
 .env
+backend/ZoteShopApi/ZoteShopApi/appsettings.json
+backend/ZoteShopApi/ZoteShopApi/appsettings.Development.json
+backend/ZoteShopApi/ZoteShopApi/Properties/PublishProfiles/ZoteShopApi20230311210030 - Web Deploy.pubxml
+backend/ZoteShopApi/ZoteShopApi/Properties/PublishProfiles/ZoteShopApi20230311210030 - Web Deploy.pubxml.user
+backend/ZoteShopApi/ZoteShopApi/Properties/ServiceDependencies/ZoteShopApi20230311210030 - Web Deploy/apis1.arm.json
