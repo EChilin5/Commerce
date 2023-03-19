@@ -29,3 +29,18 @@ backend/ZoteShopApi/ZoteShopApi/appsettings.Development.json
 backend/ZoteShopApi/ZoteShopApi/Properties/PublishProfiles/ZoteShopApi20230311210030 - Web Deploy.pubxml
 backend/ZoteShopApi/ZoteShopApi/Properties/PublishProfiles/ZoteShopApi20230311210030 - Web Deploy.pubxml.user
 backend/ZoteShopApi/ZoteShopApi/Properties/ServiceDependencies/ZoteShopApi20230311210030 - Web Deploy/apis1.arm.json
+package-lock.json
+package.json
+backend/ZoteShopApi/.vs/ZoteShopApi/FileContentIndex/3fe4efc3-7b8c-47a8-aaeb-72326cbe232f.vsidx
+backend/ZoteShopApi/.vs/ZoteShopApi/FileContentIndex/7da2c50f-665f-4909-a726-50b8e4a49de5.vsidx
+backend/ZoteShopApi/.vs/ZoteShopApi/FileContentIndex/8ca8f19f-40e4-49bf-8e74-7d5a11a665da.vsidx
+backend/ZoteShopApi/.vs/ZoteShopApi/FileContentIndex/24e02a81-20b7-45c2-9cbc-fe48abf3b0b8.vsidx
+backend/ZoteShopApi/.vs/ZoteShopApi/FileContentIndex/106f9c98-78da-48dc-8cb4-eaf91e854f4b.vsidx
+backend/ZoteShopApi/.vs/ZoteShopApi/FileContentIndex/2121659b-0614-4dd2-b672-a421600d26ac.vsidx
+backend/ZoteShopApi/.vs/ZoteShopApi/FileContentIndex/f1c5f7fe-0274-4cef-ad8f-3cf079e7ede6.vsidx
+backend/ZoteShopApi/.vs/ZoteShopApi/FileContentIndex/fb79a4ad-b648-470d-b0a9-055e6f9045c5.vsidx
+backend/ZoteShopApi/ZoteShopApi/obj/project.assets.json
+backend/ZoteShopApi/ZoteShopApi/obj/project.nuget.cache
+backend/ZoteShopApi/ZoteShopApi/obj/ZoteShopApi.csproj.nuget.dgspec.json
+backend/ZoteShopApi/ZoteShopApi/obj/Release/net7.0/ZoteShopApi.assets.cache
+backend/ZoteShopApi/ZoteShopApi/obj/Release/net7.0/ZoteShopApi.GeneratedMSBuildEditorConfig.editorconfig
