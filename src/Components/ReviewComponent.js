@@ -28,8 +28,8 @@ export const ReviewComponent = (props) => {
       });
     };
 
-    getProductRevew();
-  }, [name]);
+    //getProductRevew();
+  }, []);
 
   const [show, setShow] = useState(false);
 

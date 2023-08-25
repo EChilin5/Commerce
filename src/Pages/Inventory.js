@@ -13,8 +13,37 @@ export const Inventory = () => {
     "https://zoteshopapi20230311210030.azurewebsites.net/GetAllProduct";
 
   useEffect(() => {
-    fetchProductDetails();
+    //fetchProductDetails();
+    fetchApi();
   }, []);
+
+  let productCount = 0;
+  const fetchApi = () => {
+    axios.get(`https://fakestoreapi.com/products`).then((res) => {
+      for (var i = 0; i < res.data.length; i++) {
+        let product = res.data[i];
+        let sizeIndex = Math.floor(Math.random() * (3 - 0 + 1)) + 0;
+        if (sizeIndex > itemSize.length) {
+          sizeIndex = 0;
+        }
+        let tempSize = itemSize[sizeIndex];
+        //console.log(product);
+        let productItem = {
+          productsId: productCount,
+          productName: product.title,
+          productImage: product.image,
+          productPrice: product.price,
+          size: tempSize,
+          quantity: 10,
+        };
+        productCount++;
+        //uploadData(productItem);
+        setItem((prevState) => {
+          return [...prevState, productItem];
+        });
+      }
+    });
+  };
 
   const fetchProductDetails = () => {
     axios

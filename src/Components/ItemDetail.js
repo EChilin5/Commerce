@@ -9,6 +9,9 @@ import { useParams } from "react-router-dom";
 export const ItemDetail = (props) => {
   const [arraySize, setArraySize] = useState(0);
   const [mainImage, setMainImage] = useState();
+  const [item, setItem] = useState([]);
+  const itemSize = [1, 2, 3, 4];
+
   const [productDetails, setProductDetails] = useState([
     {
       productsId: "",
@@ -27,8 +30,10 @@ export const ItemDetail = (props) => {
   let url = "https://localhost:7019/GetSingleProduct/";
 
   useEffect(() => {
-    fetchPokemonItem(id);
+    //fetchPokemonItem(id);
+    console.log(typeof id);
 
+    fetchApi();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -70,6 +75,72 @@ export const ItemDetail = (props) => {
       setMainImage(res.data.productImage);
       setArraySize(productDetails.length - 1);
     });
+  };
+
+  let productCount = 0;
+  const fetchApi = () => {
+    axios.get(`https://fakestoreapi.com/products`).then((res) => {
+      let tempId = Number(id);
+      for (var i = 0; i < res.data.length; i++) {
+        let product = res.data[i];
+        let sizeIndex = Math.floor(Math.random() * (3 - 0 + 1)) + 0;
+        if (sizeIndex > itemSize.length) {
+          sizeIndex = 0;
+        }
+        let tempSize = itemSize[sizeIndex];
+        //console.log(product);
+        let productItem = {
+          productsId: productCount,
+          productName: product.title,
+          productImage: product.image,
+          productPrice: product.price,
+          size: tempSize,
+          quantity: 10,
+        };
+
+        //uploadData(productItem);
+        //console.log(productItem);
+        console.log(productItem);
+
+        if (productCount === tempId) {
+          console.log("test 12345");
+          setProductDetails((prevState) => [
+            ...prevState,
+            {
+              productsId: productItem.productsId,
+              productName: productItem.productName,
+              productImage: productItem.productImage,
+              productPrice: productItem.productPrice,
+              quantity: productItem.quantity,
+              size: productItem.size,
+            },
+          ]);
+          updateImage(productItem.productImage);
+        }
+
+        // if (0 === tempId) {
+        //   console.log(test);
+        //   setProductDetails((prevState) => [
+        //     ...prevState,
+        //     {
+        //       productsId: productItem.productsId,
+        //       productName: productItem.productName,
+        //       productImage: productItem.productImage,
+        //       productPrice: productItem.productPrice,
+        //       quantity: productItem.quantity,
+        //       size: productItem.size,
+        //     },
+        //   ]);
+        // }
+        productCount++;
+        setItem((prevState) => {
+          return [...prevState, productItem];
+        });
+      }
+    });
+    // console.log(item.length + " rewnrjenw");
+
+    // console.log(productDetails);
   };
 
   const updateImage = (image) => {

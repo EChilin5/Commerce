@@ -8,6 +8,9 @@ import { ProgressWheel } from "./ProgressWheel";
 
 export const InventoryProductDetails = () => {
   let { id } = useParams();
+  const [item, setItem] = useState([]);
+  const itemSize = [1, 2, 3, 4];
+
   let url =
     "https://zoteshopapi20230311210030.azurewebsites.net/GetSingleProduct/";
   const [productDetails, setProductDetails] = useState([
@@ -22,10 +25,76 @@ export const InventoryProductDetails = () => {
 
   useEffect(() => {
     console.log(id);
-    fetchPokemonItem(id);
+    //  fetchPokemonItem(id);
+    fetchApi();
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  let productCount = 0;
+  const fetchApi = () => {
+    axios.get(`https://fakestoreapi.com/products`).then((res) => {
+      let tempId = Number(id);
+      for (var i = 0; i < res.data.length; i++) {
+        let product = res.data[i];
+        let sizeIndex = Math.floor(Math.random() * (3 - 0 + 1)) + 0;
+        if (sizeIndex > itemSize.length) {
+          sizeIndex = 0;
+        }
+        let tempSize = itemSize[sizeIndex];
+        //console.log(product);
+        let productItem = {
+          productsId: productCount,
+          productName: product.title,
+          productImage: product.image,
+          productPrice: product.price,
+          size: tempSize,
+          quantity: 10,
+        };
+
+        //uploadData(productItem);
+        //console.log(productItem);
+        console.log(productItem);
+
+        if (productCount === tempId) {
+          console.log("test 12345");
+          setProductDetails((prevState) => [
+            ...prevState,
+            {
+              productsId: productItem.productsId,
+              productName: productItem.productName,
+              productImage: productItem.productImage,
+              productPrice: productItem.productPrice,
+              quantity: productItem.quantity,
+              size: productItem.size,
+            },
+          ]);
+        }
+
+        // if (0 === tempId) {
+        //   console.log(test);
+        //   setProductDetails((prevState) => [
+        //     ...prevState,
+        //     {
+        //       productsId: productItem.productsId,
+        //       productName: productItem.productName,
+        //       productImage: productItem.productImage,
+        //       productPrice: productItem.productPrice,
+        //       quantity: productItem.quantity,
+        //       size: productItem.size,
+        //     },
+        //   ]);
+        // }
+        productCount++;
+        setItem((prevState) => {
+          return [...prevState, productItem];
+        });
+      }
+    });
+    // console.log(item.length + " rewnrjenw");
+
+    // console.log(productDetails);
+  };
 
   const fetchPokemonItem = (id) => {
     console.log("Test");

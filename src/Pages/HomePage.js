@@ -18,6 +18,7 @@ export const HomePage = () => {
   const [selectedSize, setSelectedSize] = useState([]);
   const [isFilterChanged, setFilterChanged] = useState(false);
 
+  let productCount = 0;
   const itemSize = [1, 2, 3, 4];
   const displayDetails = (show, item) => {
     // setshowDetails(show);
@@ -40,10 +41,10 @@ export const HomePage = () => {
   const url = `${baseURL}GetAllProduct`;
 
   useEffect(() => {
-    // fetchApi();
-    if (item.length === 0) {
-      getAllItems();
-    }
+    fetchApi();
+    // if (item.length === 0) {
+    //   getAllItems();
+    // }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -106,13 +107,18 @@ export const HomePage = () => {
         let tempSize = itemSize[sizeIndex];
         //console.log(product);
         let productItem = {
+          productsId: productCount,
           productName: product.title,
           productImage: product.image,
           productPrice: product.price,
           size: tempSize,
           quantity: 10,
         };
-        uploadData(productItem);
+        productCount++;
+        //uploadData(productItem);
+        setItem((prevState) => {
+          return [...prevState, productItem];
+        });
       }
     });
   };
