@@ -30,15 +30,12 @@ export const BuyNowModal = (props) => {
         dialogClassName="modal-adj"
       >
         <Modal.Header closeButton>
-          <Modal.Title>Ditto</Modal.Title>
+          <Modal.Title>{props.name}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <div className="modal-wrapper">
             <div className="modal-wrapper-left">
-              <img
-                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/shiny/132.png"
-                alt="item"
-              />
+              <img src={props.image} alt="item" />
             </div>
             <div className="modal-wrapper-right">
               <div className="modal-wrapper-item">
@@ -52,7 +49,7 @@ export const BuyNowModal = (props) => {
               <hr />
 
               <div className="modal-wrapper-item">
-                <b>Total:</b> $199.00
+                <b>Total:</b> ${props.salePrice}
               </div>
             </div>
           </div>

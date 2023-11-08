@@ -9,6 +9,7 @@ export const ItemDetailCart = (props) => {
   const productSize = ["Smal", "Medium", "Large", "X-Large"];
   let randomDay = Math.floor(Math.random() * (5 - 1 + 1) + 1);
   let baseURL = `https://zoteshopapi20230311210030.azurewebsites.net/Cart/AddCartItem`;
+  console.log(props.product);
 
   const openModal = () => {
     setShow(true);
@@ -71,14 +72,22 @@ export const ItemDetailCart = (props) => {
     // return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
   }
 
+  let price = roundPrice(props.product.productPrice);
+
   return (
     <div>
       <div>
-        <BuyNowModal display={show} handleClose={closeModal} />
+        <BuyNowModal
+          display={show}
+          handleClose={closeModal}
+          image={props.product.productImage}
+          salePrice={price}
+          name={props.product.productName}
+        />
       </div>
 
       <div className="itemCartFilter">
-        <h1>${roundPrice(props.product.productPrice)}</h1>
+        <h1>${price}</h1>
 
         <div className="brand">
           <h4>{productSize[props.product.size - 1]}</h4>
