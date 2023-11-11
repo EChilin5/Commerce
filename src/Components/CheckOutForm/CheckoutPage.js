@@ -12,9 +12,10 @@ export const CheckoutPage = () => {
   const [itemCount, setItemCount] = useState(0);
 
   useEffect(() => {
-    let loggedInUser = localStorage.getItem("user");
-    let index = loggedInUser.indexOf("@");
-    loggedInUser = loggedInUser.slice(0, index);
+    // let loggedInUser = localStorage.getItem("user");
+    // let index = loggedInUser.indexOf("@");
+    // loggedInUser = loggedInUser.slice(0, index);
+    let loggedInUser = "";
 
     fetchCartInfo(loggedInUser);
   }, []);
@@ -45,25 +46,40 @@ export const CheckoutPage = () => {
     let count = 0;
     let price = 0;
 
-    axios
-      .get(`${url}${email}`)
-      .then((res) => {
-        console.log(res);
-        for (var i = 0; i < res.data.length; i++) {
-          let cartItem = res.data[i];
-          count += cartItem.amount;
-          price += roundPrice(cartItem.price) * cartItem.amount;
+    const data = localStorage.getItem("userProduct");
+    console.log(JSON.parse(data));
 
-          updateSum(price);
-          updateLength(count);
+    let temp = {
+      cartId: 1,
+      amount: 1,
+      imageURL: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+      name: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+      price: 109.95,
+      productId: 0,
+    };
 
-          console.log(cartItem);
-          setCartItems((prev) => {
-            return [...prev, cartItem];
-          });
-        }
-      })
-      .catch((error) => console.error(`Error ${error}`));
+    setCartItems((prev) => {
+      return [...prev, temp];
+    });
+    // axios
+    //   .get(`${url}${email}`)
+    //   .then((res) => {
+    //     console.log(res);
+    //     for (var i = 0; i < res.data.length; i++) {
+    //       let cartItem = res.data[i];
+    //       count += cartItem.amount;
+    //       price += roundPrice(cartItem.price) * cartItem.amount;
+
+    //       updateSum(price);
+    //       updateLength(count);
+
+    //       console.log(cartItem);
+    //       setCartItems((prev) => {
+    //         return [...prev, cartItem];
+    //       });
+    //     }
+    //   })
+    //   .catch((error) => console.error(`Error ${error}`));
   };
 
   return (

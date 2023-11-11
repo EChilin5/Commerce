@@ -31,6 +31,14 @@ export const ItemDetailCart = (props) => {
 
   const addItemToCart = () => {
     const loggedInUser = localStorage.getItem("user");
+    const product = {
+      name: props.product.productName,
+      price: props.product.productPrice,
+      amount: 1,
+      imageUrl: props.product.productImage,
+
+      productId: props.product.productsId,
+    };
     if (loggedInUser) {
       let foundUser = loggedInUser;
       let index = loggedInUser.indexOf("@");
@@ -51,8 +59,11 @@ export const ItemDetailCart = (props) => {
       console.log(product);
       alert("added to cart");
     } else {
-      alert("redirecting to login screen");
-      window.open("http://localhost:3000/admin");
+      localStorage.setItem("userProduct", JSON.stringify(product));
+      const data = localStorage.getItem("userProduct");
+      console.log("data: ", JSON.parse(data));
+      // alert("redirecting to login screen");
+      // window.open("http://localhost:3000/admin");
     }
   };
 

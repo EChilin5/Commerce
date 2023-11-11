@@ -10,7 +10,8 @@ export const CheckOutMainComponent = () => {
   const [itemCount, setItemCount] = useState(0);
 
   useEffect(() => {
-    const loggedInUser = localStorage.getItem("user");
+    //const loggedInUser = localStorage.getItem("user");
+    let loggedInUser = "";
     fetchCartInfo(loggedInUser);
   }, []);
 
@@ -41,34 +42,50 @@ export const CheckOutMainComponent = () => {
   };
 
   const fetchCartInfo = (email) => {
-    let input = email.indexOf("@");
-    email = email.slice(0, input);
-    console.log(email);
+    // let input = email.indexOf("@");
+    // email = email.slice(0, input);
+    // console.log(email);
     const user = { userName: email };
     let count = 0;
     let price = 0;
+    const data = localStorage.getItem("userProduct");
+    console.log(JSON.parse(data));
 
-    if (email) {
-      axios
-        .get(`${url}${email}`)
-        .then((res) => {
-          console.log(res);
-          for (var i = 0; i < res.data.length; i++) {
-            let cartItem = res.data[i];
-            count += cartItem.amount;
-            price += roundPrice(cartItem.price) * cartItem.amount;
+    let temp = {
+      cartId: 1,
+      amount: 1,
+      imageURL: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+      name: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+      price: 109.95,
+      productId: 0,
+    };
+    setCartItems((prev) => {
+      return [...prev, temp];
+    });
+    setCartItems((prev) => {
+      return [...prev, temp];
+    });
+    // if (email) {
+    //   axios
+    //     .get(`${url}${email}`)
+    //     .then((res) => {
+    //       console.log(res);
+    //       for (var i = 0; i < res.data.length; i++) {
+    //         let cartItem = res.data[i];
+    //         count += cartItem.amount;
+    //         price += roundPrice(cartItem.price) * cartItem.amount;
 
-            updateSum(price);
-            updateLength(count);
+    //         updateSum(price);
+    //         updateLength(count);
 
-            console.log(cartItem);
-            setCartItems((prev) => {
-              return [...prev, cartItem];
-            });
-          }
-        })
-        .catch((error) => console.error(`Error ${error}`));
-    }
+    //         console.log(cartItem);
+    //         setCartItems((prev) => {
+    //           return [...prev, cartItem];
+    //         });
+    //       }
+    //     })
+    //     .catch((error) => console.error(`Error ${error}`));
+    // }
   };
 
   const openWindow = () => {
@@ -90,9 +107,11 @@ export const CheckOutMainComponent = () => {
             <div className="empty-cart"> Your Cart is currently empty </div>
           ) : (
             <div>
+              {console.log("test " + cartItems[0].name)}
               {cartItems.map((it) => {
                 // updateLength(it.itemCount);
                 // updateSum(it.price * it.itemCount);
+                console.log(it);
                 return (
                   <div key={it.cartId}>
                     <CheckOutCard

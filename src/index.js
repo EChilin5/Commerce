@@ -12,6 +12,6 @@ root.render(<App />);
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
 
-var cors = require("cors");
+// var cors = require("cors");
 
-root.use(cors());
+// root.use(cors());
