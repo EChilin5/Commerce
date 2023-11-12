@@ -61,6 +61,13 @@ export const CheckoutPage = () => {
     setCartItems((prev) => {
       return [...prev, temp];
     });
+
+    count += temp.amount;
+    price += roundPrice(temp.price) * temp.amount;
+
+    updateSum(price);
+    updateLength(count);
+
     // axios
     //   .get(`${url}${email}`)
     //   .then((res) => {
@@ -90,13 +97,20 @@ export const CheckoutPage = () => {
           <CheckoutShipping />
           <div>
             <h4>Order Information</h4>
-            {cartItems.map((item) => {
-              return (
-                <div key={item.cartId}>
-                  <OrderCard it={item} name={item.name} image={item.imageURL} />
-                </div>
-              );
-            })}
+            <div className="cart-items-section">
+              {cartItems.map((item) => {
+                return (
+                  <div key={item.cartId} className="cart-items-content">
+                    <OrderCard
+                      it={item}
+                      name={item.name}
+                      image={item.imageURL}
+                      contentType={"checkout"}
+                    />
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
         <div className="checkout-right">

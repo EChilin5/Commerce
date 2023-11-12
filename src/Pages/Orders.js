@@ -18,18 +18,33 @@ export const Orders = () => {
     let loggedInUser = localStorage.getItem("user");
     // let index = loggedInUser.indexOf("@");
     // loggedInUser = loggedInUser.slice(0, index);
-    axios
-      .get(`${url}${loggedInUser}`)
-      .then((res) => {
-        console.log(res);
-        for (var i = 0; i < res.data.length; i++) {
-          const temp = res.data[i];
-          setOrders((prevState) => {
-            return [...prevState, temp];
-          });
-        }
-      })
-      .catch((error) => console.error(`Error ${error}`));
+
+    let temp = {
+      cartId: 1,
+      amount: 1,
+      imageUrl: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+      ProductName: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+      price: 109.95,
+      productId: 0,
+      TransactionId: 10,
+    };
+    console.log(temp);
+    setOrders((prev) => {
+      return [...prev, temp];
+    });
+
+    // axios
+    //   .get(`${url}${loggedInUser}`)
+    //   .then((res) => {
+    //     console.log(res);
+    //     for (var i = 0; i < res.data.length; i++) {
+    //       const temp = res.data[i];
+    //       setOrders((prevState) => {
+    //         return [...prevState, temp];
+    //       });
+    //     }
+    //   })
+    //   .catch((error) => console.error(`Error ${error}`));
   };
 
   const totalPrice = (day) => {
@@ -86,6 +101,7 @@ export const Orders = () => {
                     it={item}
                     image={item.imageUrl}
                     name={item.ProductName}
+                    contentType={"order"}
                   />
                 </div>
               );

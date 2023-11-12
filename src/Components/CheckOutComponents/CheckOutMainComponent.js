@@ -50,6 +50,8 @@ export const CheckOutMainComponent = () => {
     let price = 0;
     const data = localStorage.getItem("userProduct");
     console.log(JSON.parse(data));
+    let test2 = JSON.parse(data);
+    console.log(test2);
 
     let temp = {
       cartId: 1,
@@ -59,12 +61,16 @@ export const CheckOutMainComponent = () => {
       price: 109.95,
       productId: 0,
     };
+
     setCartItems((prev) => {
       return [...prev, temp];
     });
-    setCartItems((prev) => {
-      return [...prev, temp];
-    });
+
+    count += temp.amount;
+    price += roundPrice(temp.price) * temp.amount;
+
+    updateSum(price);
+    updateLength(count);
     // if (email) {
     //   axios
     //     .get(`${url}${email}`)
@@ -109,8 +115,8 @@ export const CheckOutMainComponent = () => {
             <div>
               {console.log("test " + cartItems[0].name)}
               {cartItems.map((it) => {
-                // updateLength(it.itemCount);
-                // updateSum(it.price * it.itemCount);
+                // updateLength(it.amount);
+                // updateSum(it.price * it.amount);
                 console.log(it);
                 return (
                   <div key={it.cartId}>

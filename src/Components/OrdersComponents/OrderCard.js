@@ -34,7 +34,7 @@ export const OrderCard = (props) => {
         </div>
 
         <div className="order-card-right">
-          <Button>Return Package</Button>
+          {props.contentType === "order" ? <Button>Return Package</Button> : ""}
         </div>
       </div>
     </div>
