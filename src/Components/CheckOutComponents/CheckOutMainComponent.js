@@ -95,7 +95,8 @@ export const CheckOutMainComponent = () => {
   };
 
   const openWindow = () => {
-    window.open("http://localhost:3000/checkout");
+    let url = "";
+    window.open("https://commercezotes.web.app/checkout", "_self");
   };
 
   return (

@@ -8,9 +8,10 @@ export const CardCatalog = (props) => {
 
   let randomDay = Math.floor(Math.random() * (5 - 1 + 1) + 1);
   let baseURL = "http://localhost:3000/catalog/item/";
+  let hostedUrl = "https://commercezotes.web.app/catalog/item/";
 
   const handleItemDetail = () => {
-    let urlItem = baseURL + props.item.productsId;
+    let urlItem = hostedUrl + props.item.productsId;
     window.open(urlItem);
     window.close();
     //props.display(true, props.item);

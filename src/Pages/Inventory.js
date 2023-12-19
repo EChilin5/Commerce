@@ -2,6 +2,7 @@ import Reac, { useState, useEffect } from "react";
 import axios from "axios";
 import { InventoryItem } from "../Components/InventoryComponents/InventoryItem";
 import "./Inventory.css";
+import InventoryVersinTwo from "../Components/InventoryComponentsVersionTwo/InventoryVersinTwo";
 
 export const Inventory = () => {
   let index = 0;
@@ -66,7 +67,7 @@ export const Inventory = () => {
 
   return (
     <div>
-      <div className="inventory">
+      {/* <div className="inventory">
         {item.map((res) => {
           let id = res.productsId;
           let name = res.productName;
@@ -83,7 +84,8 @@ export const Inventory = () => {
             </div>
           );
         })}
-      </div>
+      </div> */}
+      <InventoryVersinTwo />
     </div>
   );
 };

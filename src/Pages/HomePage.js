@@ -33,8 +33,9 @@ export const HomePage = () => {
 
   const handleItemDetail = (itemId) => {
     console.log("click");
-    let urlItem = "http://localhost:3000/catalog/item/" + itemId;
-    window.open(urlItem);
+    let webUrl = "https://commercezotes.web.app/catalog/item/";
+    let urlItem = webUrl + itemId;
+    window.open(urlItem, "_self");
     window.close();
     //props.display(true, props.item);
   };
