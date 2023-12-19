@@ -1,0 +1,35 @@
+.inventory-content{
+    background-color: rgba(246, 246, 247, 0.913);
+ 
+}
+
+.inventory-heading{
+    padding-top: 70px;
+    padding-left: 2%;
+    padding-right: 2%;
+
+}
+
+.inventory-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.inventory-container-left{
+    flex: 3;
+   
+}
+
+.inventory-section-base-report{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.inventory-section-base-report-card{
+    width: 30%;
+}
+
+
+.inventory-container-right{
+    flex:1;
+}

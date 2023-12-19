@@ -3,6 +3,7 @@ import ReportCard from "./ReportCard";
 import TopItems from "./TopItems";
 import ProfitLossChart from "./ProfitLossChart";
 import StockAnalysis from "./StockAnalysis";
+import "./InventoryVersionTwo.css";
 
 const InventoryVersinTwo = () => {
   let report = [
@@ -42,7 +43,7 @@ const InventoryVersinTwo = () => {
   ];
 
   return (
-    <div>
+    <div className="inventory-content">
       <div className="inventory-heading">
         <h3>DashBoard</h3>
         <div className="inventory-subheading">
@@ -53,7 +54,10 @@ const InventoryVersinTwo = () => {
             <div className="inventory-section-base-report">
               {report.map((content) => {
                 return (
-                  <div key={content.id}>
+                  <div
+                    className="inventory-section-base-report-card"
+                    key={content.id}
+                  >
                     <ReportCard data={content} />
                   </div>
                 );

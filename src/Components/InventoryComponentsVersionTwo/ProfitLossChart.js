@@ -27,7 +27,7 @@ const ProfitLossChart = () => {
             options={testObject.options}
             series={testObject.series}
             type="line"
-            width="500"
+            width="90%"
           />
         </div>
       </div>
