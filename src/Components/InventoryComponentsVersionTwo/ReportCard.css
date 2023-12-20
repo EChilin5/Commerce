@@ -7,7 +7,23 @@
 .report-card-img img{
     width: 100%;
     height: 20%;
+    padding: 5%;
 }
 
 
+.report-card-title{
+    font-size: 1.2rem;
+    font-weight: 600;
+    opacity: 0.8;
+    margin-left: 5%;
+    padding: 2% 2% 0% 2%;
+}
+
+
+.report-card-number{
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-left: 5%;
+    padding: 2%;
+}
 

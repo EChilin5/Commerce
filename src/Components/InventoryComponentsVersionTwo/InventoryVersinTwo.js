@@ -82,6 +82,7 @@ const InventoryVersinTwo = () => {
           <div className="inventory-section-team"></div>
         </div>
       </div>
+      <div className="inventory-product-section"></div>
     </div>
   );
 };
