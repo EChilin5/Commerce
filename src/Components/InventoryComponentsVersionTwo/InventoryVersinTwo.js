@@ -5,6 +5,7 @@ import ProfitLossChart from "./ProfitLossChart";
 import StockAnalysis from "./StockAnalysis";
 import "./InventoryVersionTwo.css";
 import PieChart from "./PieChart";
+import InventoryProduct from "./InventoryProduct";
 
 const InventoryVersinTwo = () => {
   let report = [
@@ -82,7 +83,9 @@ const InventoryVersinTwo = () => {
           <div className="inventory-section-team"></div>
         </div>
       </div>
-      <div className="inventory-product-section"></div>
+      <div className="inventory-product-container">
+        <InventoryProduct />
+      </div>
     </div>
   );
 };

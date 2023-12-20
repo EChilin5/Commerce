@@ -46,3 +46,8 @@
 .inventory-container-right{
     flex:1;
 }
+
+.inventory-product-container{
+    background-color: white;
+    padding: 5%;
+}
