@@ -21,6 +21,9 @@ const ProfitLossChart = () => {
 
   return (
     <div>
+      <div>
+        <h4>Profit & Loss OverView</h4>
+      </div>
       <div className="row">
         <div className="mixed-chart">
           <Chart

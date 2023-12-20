@@ -21,6 +21,9 @@ const StockAnalysis = () => {
 
   return (
     <div>
+      <div>
+        <h4>Stock OverView</h4>
+      </div>
       <div className="row">
         <div className="mixed-chart">
           <Chart

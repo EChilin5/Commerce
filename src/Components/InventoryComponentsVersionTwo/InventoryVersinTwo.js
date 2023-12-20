@@ -4,6 +4,7 @@ import TopItems from "./TopItems";
 import ProfitLossChart from "./ProfitLossChart";
 import StockAnalysis from "./StockAnalysis";
 import "./InventoryVersionTwo.css";
+import PieChart from "./PieChart";
 
 const InventoryVersinTwo = () => {
   let report = [
@@ -71,7 +72,9 @@ const InventoryVersinTwo = () => {
             </div>
           </div>
           <div className="inventory-container-right">
-            <div className="inventory-section-report-pie"></div>
+            <div className="inventory-section-report-pie">
+              <PieChart />
+            </div>
             <div className="inventory-section-top-items">
               <TopItems content={topItems} />
             </div>
