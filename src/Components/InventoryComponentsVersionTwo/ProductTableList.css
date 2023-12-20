@@ -1,0 +1,18 @@
+.product-chart-btn button{
+     background-color: #0077b5; 
+    border: 2px solid white;
+    border-radius: 0.75rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    color: white;
+}
+
+.product-chart-btn-delete button{
+    background-color: red; 
+   border: 2px solid white;
+   border-radius: 0.75rem;
+   padding: 0.5rem 1rem;
+   font-size: 1rem;
+   font-weight: 600;
+   color: white;
+}

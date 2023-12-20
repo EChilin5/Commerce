@@ -26,7 +26,7 @@ const TopItems = (props) => {
         <tbody>
           {props.content.map((info) => {
             return (
-              <tr>
+              <tr key={info.id}>
                 <td>{info.id}</td>
                 <td>{info.name}</td>
                 <td>{info.amount}</td>

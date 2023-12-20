@@ -1,9 +1,10 @@
 import React from "react";
 import Table from "react-bootstrap/Table";
+import "./ProductTableList.css";
 
 const ProductTableList = (props) => {
   return (
-    <div>
+    <div className="prduct-table-chart">
       <Table striped bordered hover>
         <thead>
           <tr>
@@ -18,9 +19,9 @@ const ProductTableList = (props) => {
           </tr>
         </thead>
         <tbody>
-          {props.product.map((item) => {
+          {props.product.slice(props.startIndex, props.endIndex).map((item) => {
             return (
-              <tr>
+              <tr key={item.productsId}>
                 <td>{item.productsId + 1}</td>
                 <td>{item.productName}</td>
                 <td>
@@ -40,10 +41,10 @@ const ProductTableList = (props) => {
                 </td>
                 <td>{item.productPrice}</td>
                 <td>{item.quantity}</td>
-                <td>
+                <td className="product-chart-btn">
                   <button>Update</button>
                 </td>
-                <td>
+                <td className="product-chart-btn-delete">
                   <button>Delete</button>
                 </td>
               </tr>
