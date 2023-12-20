@@ -1,5 +1,6 @@
 import React from "react";
 import Chart from "react-apexcharts";
+import "./ProfitLossChart.css";
 
 const ProfitLossChart = () => {
   let testObject = {
@@ -20,7 +21,7 @@ const ProfitLossChart = () => {
   };
 
   return (
-    <div>
+    <div className="profit-loss-container">
       <div>
         <h4>Profit & Loss OverView</h4>
       </div>
@@ -30,7 +31,7 @@ const ProfitLossChart = () => {
             options={testObject.options}
             series={testObject.series}
             type="line"
-            width="90%"
+            width="100%"
           />
         </div>
       </div>

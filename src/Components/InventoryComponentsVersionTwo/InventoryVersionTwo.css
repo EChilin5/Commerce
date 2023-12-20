@@ -1,18 +1,30 @@
 .inventory-content{
-    background-color: rgba(246, 246, 247, 0.913);
- 
 }
 
 .inventory-heading{
     padding-top: 70px;
     padding-left: 2%;
     padding-right: 2%;
+    background-color: #ffffff;
+    padding-bottom: 2%;
+}
 
+.inventory-heading h3{
+    font-weight: 300;
+
+}
+
+.inventory-subheading{
+    opacity: 0.7;
+    font-weight: 700;
 }
 
 .inventory-container{
     display: flex;
     flex-wrap: wrap;
+    background-color: #f9f9f9;
+    padding: 1%;
+
 }
 
 .inventory-container-left{
@@ -23,10 +35,11 @@
 .inventory-section-base-report{
     display: flex;
     flex-wrap: wrap;
+    margin-right: 5%;
 }
 
 .inventory-section-base-report-card{
-    width: 30%;
+    width: 33%;
 }
 
 

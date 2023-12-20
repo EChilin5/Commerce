@@ -38,9 +38,9 @@ const InventoryVersinTwo = () => {
   let topItems = [
     { id: 1, name: "t-shirt", amount: "65" },
     { id: 2, name: "pants", amount: "56" },
-    { id: 3, name: "shoes", amount: "43" },
+    { id: 3, name: "shoes", amount: "49" },
     { id: 4, name: "socks", amount: "45" },
-    { id: 5, name: "t-shirt", amount: "32" },
+    { id: 5, name: "hats", amount: "32" },
   ];
 
   return (
@@ -50,36 +50,36 @@ const InventoryVersinTwo = () => {
         <div className="inventory-subheading">
           Welcome to your inventory Record Pablo
         </div>
-        <div className="inventory-container">
-          <div className="inventory-container-left">
-            <div className="inventory-section-base-report">
-              {report.map((content) => {
-                return (
-                  <div
-                    className="inventory-section-base-report-card"
-                    key={content.id}
-                  >
-                    <ReportCard data={content} />
-                  </div>
-                );
-              })}
-            </div>
-            <div className="inventory-section-base-profit-loss">
-              <ProfitLossChart />
-            </div>
-            <div className="inventory-section-base-stock-analysis">
-              <StockAnalysis />
-            </div>
+      </div>
+      <div className="inventory-container">
+        <div className="inventory-container-left">
+          <div className="inventory-section-base-report">
+            {report.map((content) => {
+              return (
+                <div
+                  className="inventory-section-base-report-card"
+                  key={content.id}
+                >
+                  <ReportCard data={content} />
+                </div>
+              );
+            })}
           </div>
-          <div className="inventory-container-right">
-            <div className="inventory-section-report-pie">
-              <PieChart />
-            </div>
-            <div className="inventory-section-top-items">
-              <TopItems content={topItems} />
-            </div>
-            <div className="inventory-section-team"></div>
+          <div className="inventory-section-base-profit-loss">
+            <ProfitLossChart />
           </div>
+          <div className="inventory-section-base-stock-analysis">
+            <StockAnalysis />
+          </div>
+        </div>
+        <div className="inventory-container-right">
+          <div className="inventory-section-report-pie">
+            <PieChart />
+          </div>
+          <div className="inventory-section-top-items">
+            <TopItems content={topItems} />
+          </div>
+          <div className="inventory-section-team"></div>
         </div>
       </div>
     </div>

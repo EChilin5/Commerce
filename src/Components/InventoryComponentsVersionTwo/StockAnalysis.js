@@ -1,5 +1,6 @@
 import React from "react";
 import Chart from "react-apexcharts";
+import "./StockAnalysis.css";
 
 const StockAnalysis = () => {
   let testObject = {
@@ -20,7 +21,7 @@ const StockAnalysis = () => {
   };
 
   return (
-    <div>
+    <div className="stock-analysis-container">
       <div>
         <h4>Stock OverView</h4>
       </div>

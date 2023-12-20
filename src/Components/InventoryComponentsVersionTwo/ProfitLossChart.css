@@ -1,0 +1,11 @@
+.profit-loss-container{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 2%;
+    margin-top: 5%;
+    margin-right: 5%;
+    background-color: #fff;
+}
+
+.profit-loss-container h4{
+    font-weight: 700;
+}

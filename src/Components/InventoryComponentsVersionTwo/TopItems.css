@@ -1,0 +1,14 @@
+.top-items-container{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 4%;
+    background-color: #fff;
+
+}
+
+.top-items-header h5{
+    font-weight: 700;
+    margin-top: 2%;
+    margin-bottom: 4%;
+}
+
+

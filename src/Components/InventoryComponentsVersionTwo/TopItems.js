@@ -1,11 +1,19 @@
 import React from "react";
 import Table from "react-bootstrap/Table";
+import "./TopItems.css";
 
 const TopItems = (props) => {
+  const getCurrentMonth = () => {
+    let today = new Date();
+    let date = today.getMonth() + 1;
+    const month = today.toLocaleString("default", { month: "short" });
+    return month;
+  };
+
   return (
-    <div>
-      <div>
-        <h4>Top Selling Items</h4>
+    <div className="top-items-container">
+      <div className="top-items-header">
+        <h5>Top Selling Items ({getCurrentMonth()})</h5>
       </div>
       <Table striped bordered hover>
         <thead>
@@ -19,9 +27,9 @@ const TopItems = (props) => {
           {props.content.map((info) => {
             return (
               <tr>
-                <td>0</td>
-                <td>Maria Anders</td>
-                <td>Germany</td>
+                <td>{info.id}</td>
+                <td>{info.name}</td>
+                <td>{info.amount}</td>
               </tr>
             );
           })}

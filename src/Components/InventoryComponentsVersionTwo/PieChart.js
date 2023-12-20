@@ -1,5 +1,6 @@
 import React from "react";
 import Chart from "react-apexcharts";
+import "./PieChart.css";
 
 const PieChart = () => {
   let testObject = {
@@ -9,7 +10,7 @@ const PieChart = () => {
         width: 380,
         type: "pie",
       },
-      labels: ["Team A", "Team B", "Team C", "Team D"],
+      labels: ["Purchase", "Sale", "Expense", "Gross Profit"],
       responsive: [
         {
           breakpoint: 480,
@@ -27,14 +28,14 @@ const PieChart = () => {
   };
 
   return (
-    <div>
-      <h4>Overall Expense Report</h4>
+    <div className="pie-chart-container">
+      <h5>Overall Expense Report</h5>
       <div id="chart">
         <Chart
           options={testObject.options}
           series={testObject.series}
           type="pie"
-          width="100%"
+          width="380"
         />
       </div>
     </div>
