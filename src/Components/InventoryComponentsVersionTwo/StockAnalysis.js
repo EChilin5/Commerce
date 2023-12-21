@@ -31,7 +31,7 @@ const StockAnalysis = () => {
             options={testObject.options}
             series={testObject.series}
             type="bar"
-            width="90%"
+            width="100%"
           />
         </div>
       </div>

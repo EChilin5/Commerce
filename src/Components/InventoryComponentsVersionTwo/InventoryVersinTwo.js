@@ -49,7 +49,7 @@ const InventoryVersinTwo = () => {
       <div className="inventory-heading">
         <h3>DashBoard</h3>
         <div className="inventory-subheading">
-          Welcome to your inventory Record Pablo
+          Welcome to your inventory records
         </div>
       </div>
       <div className="inventory-container">
