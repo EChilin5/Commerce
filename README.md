@@ -1,6 +1,6 @@
 # Zotes Shop: A Web Eccomerce App in development
 
-**Zote Shop** is an web application intended to help users buy different products. A demo application to demonstrate how products will be presented and what infromation will be available to the user. Application will still need more design improvements. It will be transitioning from Pokemon Api to either to local database or fakestore Api. 
+**Zote Shop** is an web application intended to help users buy different products. A demo application to demonstrate how products will be presented and what infromation will be available to the user. 
 
 #### Techologies used: React JS, C#, TSQL, and ASP.NET Framework to create Web Api.
 
